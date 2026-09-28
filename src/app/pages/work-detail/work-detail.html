@@ -1,0 +1,177 @@
+@if (project(); as p) {
+  <article aria-labelledby="case-title">
+    <!-- Hero -->
+    <header class="hero">
+      <div class="container">
+        <a class="back text-link" routerLink="/works">
+          <app-icon name="arrow-left" [size]="14" /> All works
+        </a>
+
+        <p class="eyebrow hero__eyebrow">
+          <span>Project / {{ number() | pad }}</span>
+          <span aria-hidden="true">·</span>
+          <span>{{ p.category }}</span>
+        </p>
+        <h1 id="case-title" class="display hero__title">{{ p.title }}</h1>
+        <p class="lead hero__summary">{{ p.summary }}</p>
+
+        <dl class="meta">
+          <div>
+            <dt>Role</dt>
+            <dd>{{ p.role }}</dd>
+          </div>
+          <div>
+            <dt>Timeline</dt>
+            <dd>{{ p.timeline }}</dd>
+          </div>
+          <div>
+            <dt>Industry</dt>
+            <dd>{{ p.industry }}</dd>
+          </div>
+          <div>
+            <dt>Organisation</dt>
+            <dd>{{ p.company }}</dd>
+          </div>
+        </dl>
+      </div>
+
+      <div class="container">
+        <app-media [asset]="p.cover" ratio="16 / 8" [priority]="true" />
+      </div>
+    </header>
+
+    <!-- Challenge -->
+    <section class="block" aria-labelledby="challenge-title">
+      <div class="container block__grid">
+        <h2 id="challenge-title" class="block__label eyebrow">01 · The challenge</h2>
+        <div class="block__body">
+          @for (paragraph of p.challenge; track $index) {
+            <p class="block__text">{{ paragraph }}</p>
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- Approach -->
+    <section class="block" aria-labelledby="approach-title">
+      <div class="container block__grid">
+        <h2 id="approach-title" class="block__label eyebrow">02 · The approach</h2>
+        <ol role="list" class="steps">
+          @for (step of p.approach; track step; let i = $index; let last = $last) {
+            <li class="steps__item">
+              <span class="index-label">{{ i + 1 | pad }}</span>
+              <span class="steps__name">{{ step }}</span>
+              @if (!last) {
+                <app-icon class="steps__arrow" name="arrow-right" [size]="16" />
+              }
+            </li>
+          }
+        </ol>
+      </div>
+    </section>
+
+    <!-- Solution -->
+    <section class="block" aria-labelledby="solution-title">
+      <div class="container">
+        <div class="block__grid block__grid--tight">
+          <h2 id="solution-title" class="block__label eyebrow">03 · Solution</h2>
+          <p class="block__text muted">
+            Key screens and artefacts from the project.
+            @if (galleryPending()) {
+              <span class="placeholder-chip">Visuals to be added</span>
+            }
+          </p>
+        </div>
+        <div class="gallery">
+          @for (item of p.gallery; track item.hint) {
+            <figure class="gallery__item">
+              <app-media [asset]="item" ratio="4 / 3" />
+              @if (item.caption) {
+                <figcaption>{{ item.caption }}</figcaption>
+              }
+            </figure>
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- Key decisions -->
+    <section class="block" aria-labelledby="decisions-title">
+      <div class="container">
+        <div class="block__grid block__grid--tight">
+          <h2 id="decisions-title" class="block__label eyebrow">04 · Key UX decisions</h2>
+        </div>
+        <ol role="list" class="decisions">
+          @for (decision of p.decisions; track decision.title; let i = $index) {
+            <li class="decision">
+              <span class="index-label">{{ i + 1 | pad }}</span>
+              <h3 class="title-sm">{{ decision.title }}</h3>
+              <p class="muted">{{ decision.description }}</p>
+            </li>
+          }
+        </ol>
+      </div>
+    </section>
+
+    <!-- Outcome -->
+    <section class="block" aria-labelledby="outcome-title">
+      <div class="container block__grid">
+        <h2 id="outcome-title" class="block__label eyebrow">05 · Outcome</h2>
+        <div class="block__body">
+          @if (p.outcome.isPlaceholder) {
+            <p class="outcome outcome--placeholder">
+              <span class="placeholder-chip">To be added</span>
+              {{ p.outcome.text }}
+            </p>
+          } @else {
+            <p class="block__text">{{ p.outcome.text }}</p>
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- My role -->
+    <section class="block" aria-labelledby="role-title">
+      <div class="container block__grid">
+        <h2 id="role-title" class="block__label eyebrow">06 · My role</h2>
+        <dl class="roles">
+          @for (item of p.myRole; track item.area) {
+            <div class="roles__row">
+              <dt>{{ item.area }}</dt>
+              <dd>{{ item.detail }}</dd>
+            </div>
+          }
+        </dl>
+      </div>
+    </section>
+
+    <!-- Previous / next -->
+    @if (neighbours(); as n) {
+      <nav class="pager" aria-label="More case studies">
+        <div class="container pager__grid">
+          <a class="pager__link" [routerLink]="['/works', n.previous.slug]">
+            <span class="pager__dir"><app-icon name="arrow-left" [size]="16" /> Previous project</span>
+            <span class="pager__title">{{ n.previous.title }}</span>
+          </a>
+          <a class="pager__link pager__link--next" [routerLink]="['/works', n.next.slug]">
+            <span class="pager__dir">Next project <app-icon name="arrow-right" [size]="16" /></span>
+            <span class="pager__title">{{ n.next.title }}</span>
+          </a>
+        </div>
+      </nav>
+    }
+  </article>
+
+  <app-contact-cta />
+} @else {
+  <section class="section">
+    <div class="container missing">
+      <p class="eyebrow">404</p>
+      <h1 class="display">Project not found.</h1>
+      <p class="lead">This case study doesn't exist or may have moved.</p>
+      <a class="btn btn--primary" routerLink="/works">
+        Browse all works <app-icon name="arrow-right" [size]="16" />
+      </a>
+    </div>
+  </section>
+}

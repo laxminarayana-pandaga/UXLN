@@ -1,0 +1,138 @@
+<section class="contact" aria-labelledby="contact-title">
+  <div class="container contact__grid">
+    <!-- Intro + details -->
+    <div class="contact__intro">
+      <p class="eyebrow">Contact</p>
+      <h1 id="contact-title" class="display contact__title">Let's build something meaningful.</h1>
+      <p class="lead">
+        For UX, UI, product design, frontend collaboration, or professional opportunities, feel free
+        to get in touch.
+      </p>
+
+      <ul role="list" class="details">
+        <li class="detail">
+          <span class="icon-circle"><app-icon name="mail" [size]="16" /></span>
+          <div>
+            <p class="detail__label">Email</p>
+            <a class="detail__value" [href]="'mailto:' + profile.contact.email.text">
+              {{ profile.contact.email.text }}
+            </a>
+          </div>
+        </li>
+        <li class="detail">
+          <span class="icon-circle"><app-icon name="pin" [size]="16" /></span>
+          <div>
+            <p class="detail__label">Location</p>
+            <p class="detail__value">{{ profile.contact.location.text }}</p>
+          </div>
+        </li>
+        <li class="detail">
+          <span class="icon-circle"><app-icon name="linkedin" [size]="16" /></span>
+          <div>
+            <p class="detail__label">LinkedIn</p>
+            <a
+              class="detail__value"
+              [href]="profile.linkedIn.url"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {{ profile.linkedIn.handle }}
+              <span class="visually-hidden">(opens in a new tab)</span>
+            </a>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Form -->
+    <div class="panel">
+      @if (state() === 'success') {
+        <div class="success" role="status" tabindex="-1">
+          <span class="success__icon"><app-icon name="check" [size]="22" /></span>
+          <h2 class="title-md">Message sent.</h2>
+          <p class="muted">{{ statusMessage() }} I'll get back to you as soon as I can.</p>
+          <button type="button" class="btn btn--secondary" (click)="reset()">
+            Send another message
+          </button>
+        </div>
+      } @else {
+        <form class="form" [formGroup]="form" (ngSubmit)="submit()" novalidate aria-labelledby="form-title">
+          <h2 id="form-title" class="title-sm">Send a message</h2>
+          <p class="muted form__hint">All fields are required.</p>
+
+          <div class="form__row">
+            <div class="field">
+              <label for="cf-name">Name</label>
+              <input
+                id="cf-name"
+                type="text"
+                formControlName="name"
+                autocomplete="name"
+                [attr.aria-invalid]="showError('name')"
+                [attr.aria-describedby]="showError('name') ? 'cf-name-error' : null"
+              />
+              @if (showError('name')) {
+                <p id="cf-name-error" class="field__error">{{ errorFor('name') }}</p>
+              }
+            </div>
+
+            <div class="field">
+              <label for="cf-email">Email</label>
+              <input
+                id="cf-email"
+                type="email"
+                formControlName="email"
+                autocomplete="email"
+                inputmode="email"
+                [attr.aria-invalid]="showError('email')"
+                [attr.aria-describedby]="showError('email') ? 'cf-email-error' : null"
+              />
+              @if (showError('email')) {
+                <p id="cf-email-error" class="field__error">{{ errorFor('email') }}</p>
+              }
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="cf-subject">Subject</label>
+            <input
+              id="cf-subject"
+              type="text"
+              formControlName="subject"
+              [attr.aria-invalid]="showError('subject')"
+              [attr.aria-describedby]="showError('subject') ? 'cf-subject-error' : null"
+            />
+            @if (showError('subject')) {
+              <p id="cf-subject-error" class="field__error">{{ errorFor('subject') }}</p>
+            }
+          </div>
+
+          <div class="field">
+            <label for="cf-message">Message</label>
+            <textarea
+              id="cf-message"
+              rows="6"
+              formControlName="message"
+              [attr.aria-invalid]="showError('message')"
+              [attr.aria-describedby]="showError('message') ? 'cf-message-error' : 'cf-message-help'"
+            ></textarea>
+            @if (showError('message')) {
+              <p id="cf-message-error" class="field__error">{{ errorFor('message') }}</p>
+            } @else {
+              <p id="cf-message-help" class="field__help">Minimum {{ messageMin }} characters.</p>
+            }
+          </div>
+
+          @if (state() === 'error') {
+            <p class="form__alert" role="alert">{{ statusMessage() }}</p>
+          }
+
+          <button type="submit" class="btn btn--primary form__submit" [disabled]="state() === 'submitting'">
+            {{ state() === 'submitting' ? 'Sending…' : 'Send message' }}
+            <app-icon name="arrow-up-right" [size]="16" />
+          </button>
+        </form>
+      }
+    </div>
+  </div>
+</section>

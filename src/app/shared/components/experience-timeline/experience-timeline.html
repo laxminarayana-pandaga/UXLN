@@ -1,0 +1,57 @@
+<ol role="list" class="timeline">
+  @for (entry of entries(); track entry.employer.company) {
+    <li class="entry" [class.is-current]="entry.isCurrent">
+      <div class="entry__when">
+        <p class="entry__years">
+          {{ entry.startYear }}<span aria-hidden="true"> — </span
+          ><span class="visually-hidden"> to </span>{{ entry.endLabel }}
+        </p>
+        <p class="entry__tenure">{{ entry.tenure }}</p>
+      </div>
+
+      <div class="entry__main">
+        <h3 class="entry__company">{{ entry.employer.company }}</h3>
+        <p class="entry__meta">
+          {{ entry.roles[0].title }}
+          @if (entry.roles.length > 1) {
+            · {{ entry.roles.length }} roles held
+          }
+          · {{ entry.period }}
+        </p>
+
+        @for (role of entry.roles; track role.title) {
+          @if (role.summary) {
+            <p class="entry__summary">{{ role.summary }}</p>
+          }
+        }
+
+        @if (entry.roles.length > 1) {
+          <ul role="list" class="roles" aria-label="Roles at {{ entry.employer.company }}">
+            @for (role of entry.roles; track role.title) {
+              <li class="role">
+                <span class="role__title">{{ role.title }}</span>
+                <span class="role__range">
+                  {{ role.range }}
+                  @if (role.isCurrent) {
+                    <span class="badge">Current</span>
+                  }
+                </span>
+              </li>
+            }
+          </ul>
+        }
+
+        @if (entry.tags.length) {
+          <p class="entry__tags"><span class="visually-hidden">Focus areas: </span>{{ entry.tags.join(' · ') }}</p>
+        }
+      </div>
+
+      @if (entry.place) {
+        <p class="entry__place">
+          <app-icon name="pin" [size]="13" />
+          {{ entry.place }}
+        </p>
+      }
+    </li>
+  }
+</ol>

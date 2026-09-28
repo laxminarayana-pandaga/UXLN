@@ -1,0 +1,17 @@
+@if (showImage()) {
+  <img
+    class="media__img"
+    [src]="asset().src"
+    [alt]="asset().alt"
+    [attr.loading]="priority() ? 'eager' : 'lazy'"
+    [attr.fetchpriority]="priority() ? 'high' : null"
+    decoding="async"
+    (error)="onError()"
+  />
+} @else {
+  <div class="media__placeholder" role="img" [attr.aria-label]="asset().alt + ' (image to be added)'">
+    <app-icon name="image" [size]="22" />
+    <span class="media__label">{{ asset().alt }}</span>
+    <code class="media__hint">{{ asset().hint }}</code>
+  </div>
+}

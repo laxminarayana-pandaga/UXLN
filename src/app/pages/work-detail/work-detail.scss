@@ -1,0 +1,288 @@
+@use 'mixins' as *;
+
+// ── Hero ────────────────────────────────────────────────────
+.hero {
+  display: grid;
+  gap: clamp(2.5rem, 1.5rem + 3vw, 4.5rem);
+  padding: clamp(1.5rem, 1rem + 2vw, 3rem) 0 var(--section-space);
+
+  .container:first-child {
+    display: grid;
+    gap: var(--space-5);
+  }
+}
+
+.back {
+  width: fit-content;
+  margin-bottom: var(--space-4);
+  border-bottom-color: transparent;
+
+  &:hover {
+    border-bottom-color: currentColor;
+
+    app-icon {
+      transform: translateX(-3px);
+    }
+  }
+}
+
+.hero__eyebrow {
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.hero__title {
+  max-width: 16ch;
+  font-size: clamp(2.4rem, 1rem + 4.8vw, 6.25rem);
+}
+
+.hero__summary {
+  max-width: 56ch;
+}
+
+.meta {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin: var(--space-5) 0 0;
+  border-top: 1px solid var(--color-border);
+
+  @include mq(desktop) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  > div {
+    display: grid;
+    gap: var(--space-1);
+    padding: var(--space-4) var(--space-4) var(--space-4) 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  dt {
+    font-size: var(--text-xs);
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-text-tertiary);
+  }
+
+  dd {
+    margin: 0;
+    font-weight: 500;
+  }
+}
+
+// ── Content blocks: label column + body column ─────────────
+.block {
+  padding-block: clamp(3rem, 2rem + 3vw, 5.5rem);
+  border-top: 1px solid var(--color-border);
+}
+
+.block__grid {
+  display: grid;
+  gap: var(--space-5);
+
+  @include mq(desktop) {
+    grid-template-columns: 1fr 2.4fr;
+    gap: var(--space-8);
+  }
+}
+
+.block__grid--tight {
+  margin-bottom: var(--space-6);
+}
+
+.block__label {
+  align-self: start;
+  color: var(--color-text);
+}
+
+.block__body {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.block__text {
+  max-width: 60ch;
+  font-size: var(--text-lg);
+  line-height: 1.55;
+  letter-spacing: -0.01em;
+
+  .placeholder-chip {
+    margin-left: var(--space-2);
+    vertical-align: middle;
+  }
+}
+
+// ── Approach steps ──────────────────────────────────────────
+.steps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.steps__item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.steps__name {
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-pill);
+  background: var(--color-surface);
+  font-weight: 500;
+}
+
+.steps__arrow {
+  color: var(--color-text-tertiary);
+}
+
+// ── Gallery ─────────────────────────────────────────────────
+.gallery {
+  display: grid;
+  gap: var(--space-5);
+
+  @include mq(tablet) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.gallery__item {
+  display: grid;
+  gap: var(--space-3);
+  margin: 0;
+
+  figcaption {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+  }
+}
+
+// ── Decisions ───────────────────────────────────────────────
+.decisions {
+  display: grid;
+  gap: var(--space-4);
+
+  @include mq(tablet) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include mq(desktop) {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+}
+
+.decision {
+  display: grid;
+  gap: var(--space-3);
+  align-content: start;
+  padding: var(--space-6) var(--space-5);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+
+  .title-sm {
+    margin-top: var(--space-4);
+  }
+}
+
+// ── Outcome ─────────────────────────────────────────────────
+.outcome--placeholder {
+  display: grid;
+  gap: var(--space-3);
+  justify-items: start;
+  padding: var(--space-5);
+  border: 1px dashed var(--color-border-strong);
+  border-radius: var(--radius-md);
+  color: var(--color-text-secondary);
+}
+
+// ── My role ─────────────────────────────────────────────────
+.roles {
+  margin: 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.roles__row {
+  display: grid;
+  gap: var(--space-1);
+  padding-block: var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+
+  @include mq(tablet) {
+    grid-template-columns: 10rem 1fr;
+    gap: var(--space-5);
+  }
+
+  dt {
+    font-weight: 600;
+  }
+
+  dd {
+    margin: 0;
+    color: var(--color-text-secondary);
+  }
+}
+
+// ── Pager ───────────────────────────────────────────────────
+.pager {
+  border-top: 1px solid var(--color-border);
+}
+
+.pager__grid {
+  display: grid;
+
+  @include mq(tablet) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.pager__link {
+  display: grid;
+  gap: var(--space-3);
+  padding-block: var(--space-7);
+
+  &:hover .pager__title {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 6px;
+  }
+
+  @include below(tablet) {
+    & + & {
+      border-top: 1px solid var(--color-border);
+    }
+  }
+}
+
+.pager__link--next {
+  @include mq(tablet) {
+    justify-items: end;
+    text-align: right;
+    padding-left: var(--space-6);
+    border-left: 1px solid var(--color-border);
+  }
+}
+
+.pager__dir {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+}
+
+.pager__title {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.missing {
+  display: grid;
+  gap: var(--space-5);
+  justify-items: start;
+}

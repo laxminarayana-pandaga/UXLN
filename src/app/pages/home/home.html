@@ -1,0 +1,118 @@
+<!-- Hero -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="container hero__grid">
+    <div class="hero__copy">
+      <p class="eyebrow eyebrow--dot hero__eyebrow">{{ profile.roles.join(' • ') }}</p>
+
+      <h1 id="hero-title" class="hero__title">
+        {{ profile.headline }}
+        <span class="hero__title-suffix">{{ profile.headlineSuffix }}</span>
+      </h1>
+
+      <p class="hero__lead">{{ profile.summary }}</p>
+
+      <div class="hero__actions">
+        <a class="btn btn--primary" routerLink="/works">
+          View works <app-icon name="arrow-right" [size]="14" />
+        </a>
+        <a class="btn btn--secondary" routerLink="/contact">Let's connect</a>
+        <a class="hero__linkedin" [href]="profile.linkedIn.url" target="_blank" rel="noopener noreferrer">
+          LinkedIn profile <app-icon name="arrow-up-right" [size]="14" />
+          <span class="visually-hidden">(opens in a new tab)</span>
+        </a>
+      </div>
+    </div>
+
+    <figure class="portrait">
+      <div class="portrait__frame">
+        <app-media [asset]="profile.portrait" ratio="4 / 5" [priority]="true" />
+        <span class="portrait__ref" aria-hidden="true">Ref / {{ year }} {{ initials }}</span>
+        <a class="portrait__about" routerLink="/about" aria-label="About {{ profile.name }}">
+          <app-icon name="arrow-up-right" [size]="14" />
+        </a>
+        <figcaption class="portrait__now">
+          <span class="portrait__dot" aria-hidden="true"></span>
+          <span><span class="muted">Currently </span><strong>{{ profile.currentRole }}</strong></span>
+        </figcaption>
+      </div>
+    </figure>
+  </div>
+</section>
+
+<!-- Experience snapshot -->
+<section class="band" aria-label="Experience snapshot">
+  <div class="container">
+    <dl class="snapshot">
+      @for (item of snapshot; track item.label) {
+        <div class="stat">
+          <dt class="stat__label">{{ item.label }}</dt>
+          <dd class="stat__value">{{ item.value }}</dd>
+          @if (item.tag) {
+            <dd class="stat__tag" aria-hidden="true">{{ item.tag }}</dd>
+          }
+          <dd class="stat__detail">{{ item.detail }}</dd>
+        </div>
+      }
+    </dl>
+  </div>
+</section>
+
+<!-- About -->
+<section class="section" aria-labelledby="about-title">
+  <div class="container about">
+    <p class="eyebrow eyebrow--dot">About me</p>
+    <div class="about__body">
+      <h2 id="about-title" class="about__title">
+        I bridge design thinking and technology — from research to the browser.
+      </h2>
+      <p class="about__text">{{ intro }}</p>
+      <a class="text-link" routerLink="/about">
+        More about my background <app-icon name="arrow-right" [size]="14" />
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Capabilities -->
+<section class="section band" aria-labelledby="services-title">
+  <div class="container">
+    <app-section-heading eyebrow="What I do" title="Capabilities" headingId="services-title">
+      <p slot="aside" class="muted aside-text">
+        Design that doesn't stop at the interface — from business requirements to working frontend.
+      </p>
+    </app-section-heading>
+
+    <ul role="list" class="services">
+      @for (group of capabilities; track group.id; let i = $index) {
+        <li>
+          <a class="service" routerLink="/about" fragment="capabilities">
+            <span class="service__index">{{ i + 1 | pad }}</span>
+            <span class="service__title">{{ group.title }}</span>
+            <span class="service__summary">{{ group.summary }}</span>
+            <span class="service__count" aria-label="{{ group.items.length }} skills">({{ group.items.length | pad }})</span>
+            <span class="icon-square" aria-hidden="true"><app-icon name="arrow-up-right" [size]="14" /></span>
+          </a>
+        </li>
+      }
+    </ul>
+  </div>
+</section>
+
+<!-- Selected works -->
+<section class="section" aria-labelledby="works-title">
+  <div class="container">
+    <app-section-heading eyebrow="Selected works" title="Recent projects" headingId="works-title">
+      <a slot="aside" class="caps-link" routerLink="/works">
+        View all works <app-icon name="arrow-right" [size]="14" />
+      </a>
+    </app-section-heading>
+
+    <div class="works-grid">
+      @for (project of featured; track project.slug) {
+        <app-project-card [project]="project" [index]="indexOf(project)" />
+      }
+    </div>
+  </div>
+</section>
+
+<app-contact-cta />

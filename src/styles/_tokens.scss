@@ -1,0 +1,59 @@
+:root {
+  // Colour
+  --color-bg: #f7f7f5;
+  --color-surface: #ffffff;
+  --color-surface-muted: #efefec;
+  --color-band: #efefed;
+  --color-inverse: #111111;
+  --color-on-inverse-muted: rgb(255 255 255 / 0.68);
+  --color-status: #2f9e5b;
+  --color-text: #171717;
+  --color-text-secondary: #6b6b6b;
+  --color-text-tertiary: #8a8a86;
+  --color-border: #e6e6e3;
+  --color-border-strong: #d4d4cf;
+  --color-accent: #111111;
+  --color-on-accent: #ffffff;
+  --color-focus: #171717;
+  --color-error: #b3261e;
+  --color-success: #1f6b3a;
+
+  // Type
+  --font-display: 'Newsreader', 'Iowan Old Style', Georgia, 'Times New Roman', serif;
+  --font-body: 'Newsreader', 'Iowan Old Style', Georgia, 'Times New Roman', serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-md: 1.125rem;
+  --text-lg: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem);
+  --text-xl: clamp(1.5rem, 1.2rem + 1.2vw, 2.25rem);
+  --text-2xl: clamp(2rem, 1.4rem + 2.4vw, 3.5rem);
+  --text-3xl: clamp(2.5rem, 1.5rem + 4.2vw, 5.5rem);
+  --text-display: clamp(2.75rem, 1.2rem + 6.4vw, 8rem);
+
+  // Space
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 6rem;
+  --section-space: clamp(3.5rem, 2.5rem + 3.5vw, 6rem);
+
+  // Layout
+  --container-max: 1360px;
+  --gutter: clamp(1rem, 0.4rem + 2.8vw, 3rem);
+  --header-height: 68px;
+
+  // Shape & motion
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-pill: 999px;
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --duration: 240ms;
+}

@@ -1,0 +1,43 @@
+<div class="bar container">
+  <a class="brand" routerLink="/" aria-label="{{ name }} — home">
+    <span class="brand__mark" aria-hidden="true">LP</span>
+    <span class="brand__name">{{ name }}</span>
+  </a>
+
+  <button
+    type="button"
+    class="toggle"
+    aria-controls="primary-nav"
+    [attr.aria-expanded]="menuOpen()"
+    [attr.aria-label]="menuOpen() ? 'Close menu' : 'Open menu'"
+    (click)="toggleMenu()"
+  >
+    <app-icon [name]="menuOpen() ? 'close' : 'menu'" [size]="22" />
+  </button>
+
+  <nav id="primary-nav" class="nav" aria-label="Primary">
+    <ul role="list" class="nav__list">
+      @for (link of links; track link.path) {
+        <li>
+          <a
+            class="nav__link"
+            [class.nav__link--cta]="link.path === '/contact'"
+            [routerLink]="link.path"
+            routerLinkActive="is-active"
+            ariaCurrentWhenActive="page"
+            [routerLinkActiveOptions]="{ exact: link.path === '/' }"
+          >
+            {{ link.label }}
+            @if (link.path === '/contact') {
+              <app-icon name="arrow-up-right" [size]="16" />
+            }
+          </a>
+        </li>
+      }
+    </ul>
+  </nav>
+
+  <a class="social" [href]="linkedIn" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile (opens in a new tab)">
+    <app-icon name="linkedin" [size]="15" />
+  </a>
+</div>
