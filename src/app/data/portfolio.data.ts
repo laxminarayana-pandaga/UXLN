@@ -23,14 +23,15 @@ export const PROFILE: Profile = {
   currentRole: 'User Experience Architect at 7TechNIX LLC',
   careerStart: CAREER_START,
   portrait: {
+    src: '/assets/images/laxmip.jpeg',
     alt: 'Portrait of Laxminarayana Pandaga',
-    hint: '/assets/images/portrait.jpg',
+    hint: '/assets/images/laxmip.jpeg',
   },
   contact: {
     // TODO: Replace with the real email address.
-    email: { text: 'YOUR_EMAIL@example.com', isPlaceholder: true },
+    email: { text: 'laxminarayana22@gmail.com', isPlaceholder: true },
     // TODO: Replace with the real city.
-    location: { text: 'YOUR_CITY, INDIA', isPlaceholder: true },
+    location: { text: 'Hyderabad, INDIA', isPlaceholder: true },
   },
   linkedIn: {
     label: 'LinkedIn',

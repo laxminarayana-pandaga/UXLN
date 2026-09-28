@@ -125,11 +125,14 @@
   position: absolute;
   top: var(--space-5);
   left: var(--space-5);
+  padding: 3px var(--space-2);
+  border-radius: 2px;
+  background: rgb(255 255 255 / 0.85);
   font-family: var(--font-mono);
   font-size: 0.625rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--color-text-tertiary);
+  color: var(--color-text-secondary);
 }
 
 .portrait__about {
