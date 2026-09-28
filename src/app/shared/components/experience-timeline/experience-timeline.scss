@@ -11,7 +11,13 @@
 
 // One white card per organisation: dates · details · location.
 .entry {
+  position: relative;
   display: grid;
+  transition: border-color var(--duration) var(--ease);
+
+  &:hover {
+    border-color: var(--c-violet-soft);
+  }
   gap: var(--space-3);
   padding: var(--space-5);
   border: 1px solid var(--color-border);
@@ -40,7 +46,8 @@
   height: 6px;
   margin: 0 var(--space-2) 0.2em 0;
   border-radius: 50%;
-  background: var(--color-accent);
+  background: var(--c-teal);
+  box-shadow: 0 0 0 3px var(--c-teal-tint);
   vertical-align: middle;
 }
 
@@ -105,8 +112,8 @@
 .badge {
   padding: 0 var(--space-2);
   border-radius: 2px;
-  background: var(--color-accent);
-  color: var(--color-on-accent);
+  background: var(--c-teal-tint);
+  color: var(--c-teal);
   font-size: 0.625rem;
   font-weight: 600;
   letter-spacing: 0.06em;
@@ -125,6 +132,10 @@
   gap: var(--space-1);
   font-size: var(--text-xs);
   color: var(--color-text-secondary);
+
+  app-icon {
+    color: var(--c-coral);
+  }
 
   @include mq(desktop) {
     justify-self: end;

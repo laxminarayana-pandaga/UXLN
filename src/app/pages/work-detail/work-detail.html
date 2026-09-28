@@ -1,5 +1,5 @@
 @if (project(); as p) {
-  <article aria-labelledby="case-title">
+  <article aria-labelledby="case-title" [attr.data-tone]="((number() - 1) % 4) + 1">
     <!-- Hero -->
     <header class="hero">
       <div class="container">
@@ -58,7 +58,7 @@
         <h2 id="approach-title" class="block__label eyebrow">02 · The approach</h2>
         <ol role="list" class="steps">
           @for (step of p.approach; track step; let i = $index; let last = $last) {
-            <li class="steps__item">
+            <li class="steps__item" [attr.data-tone]="(i % 4) + 1">
               <span class="index-label">{{ i + 1 | pad }}</span>
               <span class="steps__name">{{ step }}</span>
               @if (!last) {
@@ -103,7 +103,7 @@
         </div>
         <ol role="list" class="decisions">
           @for (decision of p.decisions; track decision.title; let i = $index) {
-            <li class="decision">
+            <li class="decision" [attr.data-tone]="(i % 4) + 1">
               <span class="index-label">{{ i + 1 | pad }}</span>
               <h3 class="title-sm">{{ decision.title }}</h3>
               <p class="muted">{{ decision.description }}</p>

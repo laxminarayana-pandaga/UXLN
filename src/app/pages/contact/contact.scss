@@ -116,9 +116,9 @@ a.detail__value:hover {
 
     &:focus {
       outline: none;
-      border-color: var(--color-text);
+      border-color: var(--color-brand);
       background: var(--color-surface);
-      box-shadow: 0 0 0 3px var(--color-border);
+      box-shadow: 0 0 0 3px var(--color-brand-tint);
     }
 
     &[aria-invalid='true'] {
@@ -181,4 +181,10 @@ a.detail__value:hover {
   border-radius: 50%;
   background: var(--color-accent);
   color: var(--color-on-accent);
+}
+
+.detail .icon-circle {
+  border-color: transparent;
+  background: var(--tone-tint);
+  color: var(--tone);
 }

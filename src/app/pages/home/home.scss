@@ -40,6 +40,8 @@
 
 .hero__title-suffix {
   font-weight: 400;
+  // Keep descenders inside the clipped gradient.
+  padding-bottom: 0.08em;
 }
 
 .hero__lead {
@@ -77,7 +79,23 @@
 
 // Portrait: framed card with a reference label, a link corner and a status pill.
 .portrait {
+  position: relative;
   margin: 0;
+
+  // Soft colour field behind the card.
+  &::before {
+    content: '';
+    position: absolute;
+    inset: -8% -10% -6% -8%;
+    z-index: -1;
+    background:
+      radial-gradient(40% 45% at 18% 22%, color-mix(in srgb, var(--c-coral-soft) 55%, transparent), transparent 70%),
+      radial-gradient(45% 45% at 85% 30%, color-mix(in srgb, var(--c-violet-soft) 55%, transparent), transparent 70%),
+      radial-gradient(45% 45% at 55% 90%, color-mix(in srgb, var(--c-teal-soft) 45%, transparent), transparent 70%);
+    filter: blur(28px);
+    pointer-events: none;
+  }
+
   width: 100%;
   max-width: 480px;
 
@@ -130,7 +148,8 @@
     color var(--duration) var(--ease);
 
   &:hover {
-    background: var(--color-accent);
+    background: var(--color-brand);
+    border-color: var(--color-brand);
     color: var(--color-on-accent);
   }
 }
@@ -180,6 +199,8 @@
 }
 
 .stat {
+  position: relative;
+  overflow: hidden;
   display: grid;
   grid-template-columns: 1fr auto;
   align-content: start;
@@ -188,6 +209,15 @@
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
   background: var(--color-surface);
+
+  // Colour bar along the top edge.
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0 0 auto;
+    height: 3px;
+    background: var(--tone);
+  }
 
   dd {
     margin: 0;
@@ -202,6 +232,7 @@
   line-height: 1.05;
   letter-spacing: -0.02em;
   white-space: nowrap;
+  color: var(--tone);
 }
 
 .stat__tag {
@@ -211,7 +242,10 @@
   font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--color-text-tertiary);
+  padding: 2px var(--space-2);
+  border-radius: 2px;
+  background: var(--tone-tint);
+  color: var(--tone);
 }
 
 .stat__label {
@@ -287,23 +321,24 @@
     border-color var(--duration) var(--ease);
 
   @include mq(desktop) {
-    grid-template-columns: 2.5rem minmax(12rem, 1fr) 1.6fr auto auto;
+    grid-template-columns: 2rem minmax(12rem, 1fr) 1.6fr auto auto;
     gap: var(--space-6);
     padding-block: var(--space-5);
   }
 
-  // Hover inverts the row — the reference's highlighted card, in ink.
+  // Hover fills the row with its capability colour.
   &:hover,
   &:focus-visible {
-    background: var(--color-accent);
-    border-color: var(--color-accent);
+    background: var(--tone);
+    border-color: var(--tone);
     color: var(--color-on-accent);
 
     .service__index,
     .service__summary,
     .service__count {
-      color: var(--color-on-inverse-muted);
-      border-color: rgb(255 255 255 / 0.25);
+      color: rgb(255 255 255 / 0.85);
+      border-color: rgb(255 255 255 / 0.35);
+      background: transparent;
     }
 
     .icon-square {
@@ -315,8 +350,15 @@
 }
 
 .service__index {
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: var(--tone-tint);
   font-size: var(--text-xs);
-  color: var(--color-text-tertiary);
+  font-weight: 600;
+  color: var(--tone);
   font-variant-numeric: tabular-nums;
 }
 

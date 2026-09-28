@@ -9,7 +9,11 @@ import { PadPipe } from '../../pipes/pad.pipe';
   selector: 'app-project-card',
   imports: [RouterLink, Icon, Media, PadPipe],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { '[class.is-wide]': 'wide()' },
+  host: {
+    '[class.is-wide]': 'wide()',
+    // Cycle the four signature colours by project number.
+    '[attr.data-tone]': '((index() - 1) % 4) + 1',
+  },
   templateUrl: './project-card.html',
   styleUrl: './project-card.scss',
 })

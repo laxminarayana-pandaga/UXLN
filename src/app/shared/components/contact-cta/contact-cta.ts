@@ -12,7 +12,7 @@ import { Icon } from '../icon/icon';
     <section class="cta" aria-labelledby="cta-title">
       <div class="container cta__inner">
         <div class="cta__copy">
-          <p class="eyebrow cta__eyebrow">Get in touch</p>
+          <p class="eyebrow eyebrow--dot cta__eyebrow">Get in touch</p>
           <h2 id="cta-title" class="cta__title">Let's build something meaningful.</h2>
           <p class="cta__text">
             For UX, UI, product design, frontend collaboration, or professional opportunities, feel

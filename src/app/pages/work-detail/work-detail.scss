@@ -27,6 +27,7 @@
 }
 
 .hero__eyebrow {
+  color: var(--tone);
   flex-wrap: wrap;
   gap: var(--space-2);
 }
@@ -93,7 +94,7 @@
 
 .block__label {
   align-self: start;
-  color: var(--color-text);
+  color: var(--tone);
 }
 
 .block__body {
@@ -128,9 +129,10 @@
 
 .steps__name {
   padding: var(--space-3) var(--space-4);
-  border: 1px solid var(--color-border-strong);
+  border: 1px solid color-mix(in srgb, var(--tone) 30%, transparent);
   border-radius: var(--radius-pill);
-  background: var(--color-surface);
+  background: var(--tone-tint);
+  color: var(--tone);
   font-weight: 500;
 }
 
@@ -179,6 +181,7 @@
   align-content: start;
   padding: var(--space-6) var(--space-5);
   border: 1px solid var(--color-border);
+  border-top: 3px solid var(--tone);
   border-radius: var(--radius-md);
   background: var(--color-surface);
 
@@ -285,4 +288,10 @@
   display: grid;
   gap: var(--space-5);
   justify-items: start;
+}
+
+.decision .index-label,
+.steps__item .index-label {
+  color: var(--tone);
+  font-weight: 600;
 }

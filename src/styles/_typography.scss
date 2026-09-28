@@ -70,7 +70,15 @@ p {
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  background: currentColor;
+  background: var(--color-brand);
+}
+
+// Multi-hue gradient text for short, large phrases only.
+.text-gradient {
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .lead {

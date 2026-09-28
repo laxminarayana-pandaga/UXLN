@@ -36,7 +36,7 @@
   color: var(--color-on-accent);
 
   &:hover {
-    background: #2b2b2b;
+    background: var(--color-brand);
   }
 }
 
@@ -70,6 +70,10 @@
 
   app-icon {
     transition: transform var(--duration) var(--ease);
+  }
+
+  &:hover {
+    color: var(--color-brand);
   }
 
   &:hover app-icon {

@@ -6,7 +6,7 @@
 
       <h1 id="hero-title" class="hero__title">
         {{ profile.headline }}
-        <span class="hero__title-suffix">{{ profile.headlineSuffix }}</span>
+        <span class="hero__title-suffix text-gradient">{{ profile.headlineSuffix }}</span>
       </h1>
 
       <p class="hero__lead">{{ profile.summary }}</p>
@@ -23,7 +23,7 @@
       </div>
     </div>
 
-    <figure class="portrait">
+    <figure class="portrait" data-tone="2">
       <div class="portrait__frame">
         <app-media [asset]="profile.portrait" ratio="4 / 5" [priority]="true" />
         <span class="portrait__ref" aria-hidden="true">Ref / {{ year }} {{ initials }}</span>
@@ -43,8 +43,8 @@
 <section class="band" aria-label="Experience snapshot">
   <div class="container">
     <dl class="snapshot">
-      @for (item of snapshot; track item.label) {
-        <div class="stat">
+      @for (item of snapshot; track item.label; let i = $index) {
+        <div class="stat" [attr.data-tone]="i + 1">
           <dt class="stat__label">{{ item.label }}</dt>
           <dd class="stat__value">{{ item.value }}</dd>
           @if (item.tag) {
@@ -85,7 +85,7 @@
     <ul role="list" class="services">
       @for (group of capabilities; track group.id; let i = $index) {
         <li>
-          <a class="service" routerLink="/about" fragment="capabilities">
+          <a class="service" routerLink="/about" fragment="capabilities" [attr.data-tone]="(i % 4) + 1">
             <span class="service__index">{{ i + 1 | pad }}</span>
             <span class="service__title">{{ group.title }}</span>
             <span class="service__summary">{{ group.summary }}</span>

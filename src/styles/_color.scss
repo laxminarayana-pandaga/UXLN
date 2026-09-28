@@ -1,0 +1,58 @@
+// Signature palette — four hues, one per capability, repeated across the site
+// so colour carries meaning: UX = coral, UI = violet, Frontend = teal, Product = amber.
+//
+// Each hue has three steps:
+//   ink  — text and solid fills with white text (≥ 4.5:1 on white)
+//   tint — pastel backgrounds
+//   soft — decorative shapes and gradients only (not for text)
+:root {
+  --c-coral: #c8401c;
+  --c-coral-tint: #ffede6;
+  --c-coral-soft: #ff8a65;
+
+  --c-violet: #6246ea;
+  --c-violet-tint: #eeeaff;
+  --c-violet-soft: #9b87ff;
+
+  --c-teal: #0e7c6b;
+  --c-teal-tint: #ddf4ee;
+  --c-teal-soft: #3cc7a8;
+
+  --c-amber: #a85a07;
+  --c-amber-tint: #fff1d9;
+  --c-amber-soft: #ffb84d;
+
+  --color-brand: var(--c-violet);
+  --color-brand-tint: var(--c-violet-tint);
+  --gradient-brand: linear-gradient(100deg, var(--c-coral) 0%, var(--c-violet) 55%, var(--c-teal) 100%);
+}
+
+// Tone hook: set data-tone="1..4" on an element; children read --tone, --tone-tint, --tone-soft.
+[data-tone='1'] {
+  --tone: var(--c-coral);
+  --tone-tint: var(--c-coral-tint);
+  --tone-soft: var(--c-coral-soft);
+}
+
+[data-tone='2'] {
+  --tone: var(--c-violet);
+  --tone-tint: var(--c-violet-tint);
+  --tone-soft: var(--c-violet-soft);
+}
+
+[data-tone='3'] {
+  --tone: var(--c-teal);
+  --tone-tint: var(--c-teal-tint);
+  --tone-soft: var(--c-teal-soft);
+}
+
+[data-tone='4'] {
+  --tone: var(--c-amber);
+  --tone-tint: var(--c-amber-tint);
+  --tone-soft: var(--c-amber-soft);
+}
+
+::selection {
+  background: var(--c-violet-tint);
+  color: var(--c-violet);
+}
