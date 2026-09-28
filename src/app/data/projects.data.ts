@@ -5,8 +5,9 @@ import { Project } from '../core/models/portfolio.models';
  * Anything that needs real project detail (screens, outcomes, metrics) is marked
  * `isPlaceholder` and rendered with a visible "To be added" marker.
  *
- * To add real visuals: drop files into /public/assets/images/projects/ and set `src`
- * to the path shown in `hint`.
+ * Images: every `src` starts as '/assets/images/image-placeholder.png'.
+ * To add a real visual, drop the file into /public/assets/images/projects/ and change
+ * `src` to its path — `hint` is the suggested filename for each slot.
  */
 export const PROJECTS: readonly Project[] = [
   {
@@ -21,6 +22,7 @@ export const PROJECTS: readonly Project[] = [
     contributions: ['UX Research', 'Product Design', 'UX/UI', 'AngularJS'],
     featured: true,
     cover: {
+      src: '/assets/images/image-placeholder.png',
       alt: 'Enterprise healthcare product interface',
       hint: '/assets/images/projects/healthcare-cover.jpg',
     },
@@ -31,11 +33,13 @@ export const PROJECTS: readonly Project[] = [
     approach: ['Research', 'Information Architecture', 'Wireframes', 'UI Design', 'Development Collaboration'],
     gallery: [
       {
+        src: '/assets/images/image-placeholder.png',
         alt: 'Workflow and information architecture overview',
         hint: '/assets/images/projects/healthcare-01.jpg',
         caption: 'Information architecture & workflow mapping',
       },
       {
+        src: '/assets/images/image-placeholder.png',
         alt: 'High-fidelity product screens',
         hint: '/assets/images/projects/healthcare-02.jpg',
         caption: 'High-fidelity product UI',
@@ -82,6 +86,7 @@ export const PROJECTS: readonly Project[] = [
     contributions: ['UX Research', 'Interaction Design', 'Framework Design'],
     featured: true,
     cover: {
+      src: '/assets/images/image-placeholder.png',
       alt: 'Search answer experience designs',
       hint: '/assets/images/projects/search-cover.jpg',
     },
@@ -92,11 +97,13 @@ export const PROJECTS: readonly Project[] = [
     approach: ['Research', 'Information Architecture', 'Prototype', 'UI Design', 'Development Collaboration'],
     gallery: [
       {
+        src: '/assets/images/image-placeholder.png',
         alt: 'Answer framework structure',
         hint: '/assets/images/projects/search-01.jpg',
         caption: 'Answer framework',
       },
       {
+        src: '/assets/images/image-placeholder.png',
         alt: 'Answer designs across canvases',
         hint: '/assets/images/projects/search-02.jpg',
         caption: 'Experiences across canvases',
@@ -142,6 +149,7 @@ export const PROJECTS: readonly Project[] = [
     contributions: ['Personas', 'User Journeys', 'Prototypes', 'RFP Design', 'Infographics'],
     featured: true,
     cover: {
+      src: '/assets/images/image-placeholder.png',
       alt: 'Personas, journeys and proposal designs',
       hint: '/assets/images/projects/business-cover.jpg',
     },
@@ -152,11 +160,13 @@ export const PROJECTS: readonly Project[] = [
     approach: ['Research', 'Wireframes', 'Prototype', 'UI Design'],
     gallery: [
       {
+        src: '/assets/images/image-placeholder.png',
         alt: 'Personas and user journey maps',
         hint: '/assets/images/projects/business-01.jpg',
         caption: 'Personas & user journeys',
       },
       {
+        src: '/assets/images/image-placeholder.png',
         alt: 'RFP design and infographics',
         hint: '/assets/images/projects/business-02.jpg',
         caption: 'RFP design & infographics',
@@ -203,6 +213,7 @@ export const PROJECTS: readonly Project[] = [
     contributions: ['Wireframes', 'Style Guides', 'Usability Testing', 'HTML5 / CSS3', 'Bootstrap'],
     featured: true,
     cover: {
+      src: '/assets/images/image-placeholder.png',
       alt: 'Website and portal designs',
       hint: '/assets/images/projects/web-cover.jpg',
     },
@@ -220,11 +231,13 @@ export const PROJECTS: readonly Project[] = [
     ],
     gallery: [
       {
+        src: '/assets/images/image-placeholder.png',
         alt: 'Wireframes and prototypes',
         hint: '/assets/images/projects/web-01.jpg',
         caption: 'Wireframes & prototypes',
       },
       {
+        src: '/assets/images/image-placeholder.png',
         alt: 'Style guide',
         hint: '/assets/images/projects/web-02.jpg',
         caption: 'Style guide',
@@ -277,6 +290,7 @@ export const PROJECTS: readonly Project[] = [
     contributions: ['Website Design', 'HTML Conversion', 'WordPress', 'jQuery'],
     featured: false,
     cover: {
+      src: '/assets/images/image-placeholder.png',
       alt: 'Client website designs',
       hint: '/assets/images/projects/wordpress-cover.jpg',
     },
@@ -286,11 +300,13 @@ export const PROJECTS: readonly Project[] = [
     approach: ['Wireframes', 'UI Design', 'Development Collaboration'],
     gallery: [
       {
+        src: '/assets/images/image-placeholder.png',
         alt: 'Website page layouts',
         hint: '/assets/images/projects/wordpress-01.jpg',
         caption: 'Page layouts',
       },
       {
+        src: '/assets/images/image-placeholder.png',
         alt: 'Customised WordPress themes',
         hint: '/assets/images/projects/wordpress-02.jpg',
         caption: 'WordPress themes',

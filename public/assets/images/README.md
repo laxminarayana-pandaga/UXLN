@@ -1,7 +1,9 @@
 # Portfolio images
 
-Drop real images here, then set `src` on the matching entry in `src/app/data/`.
-Until `src` is set, the site shows a labelled placeholder with the expected path.
+Every project image slot starts with `src: '/assets/images/image-placeholder.png'`.
+To add a real image, drop the file here (projects go in `projects/`) and change that
+`src` in `src/app/data/` to the new path. `hint` holds the suggested filename and is shown
+on top of the placeholder so you can tell the slots apart.
 
 | Path | Used for |
 | --- | --- |

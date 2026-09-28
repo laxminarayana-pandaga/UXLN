@@ -2,12 +2,15 @@
   <img
     class="media__img"
     [src]="asset().src"
-    [alt]="asset().alt"
+    [alt]="altText()"
     [attr.loading]="priority() ? 'eager' : 'lazy'"
     [attr.fetchpriority]="priority() ? 'high' : null"
     decoding="async"
     (error)="onError()"
   />
+  @if (isPlaceholder()) {
+    <code class="media__hint media__hint--overlay" aria-hidden="true">{{ asset().hint }}</code>
+  }
 } @else {
   <div class="media__placeholder" role="img" [attr.aria-label]="asset().alt + ' (image to be added)'">
     <app-icon name="image" [size]="22" />

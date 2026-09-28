@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, effect, inject, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { IMAGE_PLACEHOLDER } from '../../core/constants';
 import { ProjectService } from '../../core/services/project.service';
 import { SeoService } from '../../core/services/seo.service';
 import { PROFILE } from '../../data/portfolio.data';
@@ -29,7 +30,8 @@ export class WorkDetail {
     return p ? this.projects.indexOf(p) : 0;
   });
   protected readonly galleryPending = computed(
-    () => this.project()?.gallery.some((item) => !item.src) ?? false,
+    () =>
+      this.project()?.gallery.some((item) => !item.src || item.src === IMAGE_PLACEHOLDER) ?? false,
   );
   protected readonly neighbours = computed(() => {
     const p = this.project();

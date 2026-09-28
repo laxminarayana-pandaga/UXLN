@@ -5,8 +5,8 @@ export interface YearMonth {
 }
 
 /**
- * An image slot. `src` stays undefined until a real asset exists;
- * `hint` tells the owner where to drop the file so the placeholder can be swapped.
+ * An image slot. `src` is the image to show — the shared IMAGE_PLACEHOLDER until a
+ * real asset exists. `hint` is the suggested path for the real file.
  */
 export interface MediaAsset {
   readonly src?: string;

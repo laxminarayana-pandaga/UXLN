@@ -1,11 +1,13 @@
 import { ChangeDetectionStrategy, Component, computed, input, signal } from '@angular/core';
 import { MediaAsset } from '../../../core/models/portfolio.models';
+import { IMAGE_PLACEHOLDER } from '../../../core/constants';
 import { Icon } from '../icon/icon';
 
 /**
  * Image frame with a designed placeholder state.
- * Renders the real image when `asset.src` is set; otherwise (or if loading fails)
- * shows a neutral panel telling the owner which file to add.
+ * Renders the image at `asset.src`. When that is the shared placeholder image, the
+ * suggested filename (`hint`) is overlaid so the owner knows which file to add.
+ * With no `src` (or if loading fails) a CSS placeholder panel is shown instead.
  */
 @Component({
   selector: 'app-media',
@@ -22,6 +24,10 @@ export class Media {
 
   private readonly failed = signal(false);
   protected readonly showImage = computed(() => !!this.asset().src && !this.failed());
+  protected readonly isPlaceholder = computed(() => this.asset().src === IMAGE_PLACEHOLDER);
+  protected readonly altText = computed(() =>
+    this.isPlaceholder() ? `${this.asset().alt} (image to be added)` : this.asset().alt,
+  );
 
   protected onError(): void {
     this.failed.set(true);

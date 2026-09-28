@@ -49,3 +49,16 @@
   border: 1px solid var(--color-border);
   overflow-wrap: anywhere;
 }
+
+// Suggested filename shown on top of the shared placeholder image.
+.media__hint--overlay {
+  position: absolute;
+  left: 50%;
+  bottom: var(--space-4);
+  max-width: calc(100% - 2 * var(--space-4));
+  transform: translateX(-50%);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--color-text-secondary);
+}
