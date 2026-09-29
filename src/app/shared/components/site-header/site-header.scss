@@ -5,7 +5,7 @@
   top: 0;
   z-index: 50;
   display: block;
-  border-bottom: 1px solid transparent;
+  border-bottom: 1px solid #E8E5E1;
   transition: border-color var(--duration) var(--ease);
 
   // Blur lives on a pseudo-element: backdrop-filter on the host would become the
@@ -108,7 +108,7 @@
   gap: var(--space-2);
   min-height: 36px;
   padding: 0 var(--space-3);
-  border-radius: var(--radius-sm);
+  // border-radius: var(--radius-sm);
   font-size: var(--text-sm);
   font-weight: 500;
   color: var(--color-text-secondary);
@@ -136,7 +136,7 @@
 
 .nav__link--cta {
   margin-left: var(--space-3);
-  padding: 0 var(--space-4);
+  // padding: 0 var(--space-4);
   font-weight: 600;
   background: var(--color-accent);
   color: var(--color-on-accent);
@@ -209,4 +209,20 @@
   .nav {
     display: block;
   }
+}
+.brand-logo {
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+    font-family: Space Grotesk, sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #0d0d0d;
+    text-decoration: none;
+    letter-spacing: -.01em;
+    flex-shrink: 0;
+}
+.brand-logo-img {
+    height: 55px;
+    width: auto;
 }

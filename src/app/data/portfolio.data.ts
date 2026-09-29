@@ -13,18 +13,19 @@ const CAREER_START = { year: 2008, month: 6 } as const;
 export const YEARS_OF_EXPERIENCE = `${yearsSince(CAREER_START)}+`;
 
 export const PROFILE: Profile = {
-  name: 'Laxminarayana Pandaga',
+  name: 'Lakshmi Narayana Pandaga',
   shortName: 'L. Pandaga',
-  roles: ['UX Designer', 'UI Designer', 'Frontend Developer'],
+  roles: ['Lakshmi Narayana', 'Product Designer'],
   headline: 'Designing meaningful digital experiences',
-  headlineSuffix: `with ${YEARS_OF_EXPERIENCE} years of experience.`,
+  headlineSuffix: ``,
+  // headlineSuffix: `with ${YEARS_OF_EXPERIENCE} years of experience.`,
   summary:
     'From user experience and interface design to frontend implementation, I bridge design thinking and technology to create usable, scalable digital products.',
   currentRole: 'User Experience Architect at 7TechNIX LLC',
   careerStart: CAREER_START,
   portrait: {
-    src: '/assets/images/laxmip.jpeg',
-    alt: 'Portrait of Laxminarayana Pandaga',
+    src: '/assets/images/homepageImg3.png',
+    alt: 'Portrait of Lakshmi Narayana Pandaga',
     hint: '/assets/images/laxmip.jpeg',
   },
   contact: {

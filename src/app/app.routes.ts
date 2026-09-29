@@ -12,7 +12,7 @@ export const routes: Routes = [
     pathMatch: 'full',
     loadComponent: () => import('./pages/home/home').then((m) => m.Home),
     data: seo({
-      title: `${name} — UX Designer, UI Designer & Frontend Developer`,
+      title: `${name} — Portfolio`,
       description: `${name} is a UX/UI Designer and Frontend Developer with ${YEARS_OF_EXPERIENCE} years of experience creating digital experiences across enterprise, healthcare, web and product environments.`,
       type: 'profile',
     }),

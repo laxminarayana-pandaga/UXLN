@@ -22,6 +22,6 @@ describe('App', () => {
     const el = fixture.nativeElement as HTMLElement;
     expect(el.querySelector('app-site-header')).toBeTruthy();
     expect(el.querySelector('main#main')).toBeTruthy();
-    expect(el.querySelector('app-site-footer')?.textContent).toContain('Laxminarayana Pandaga');
+    expect(el.querySelector('app-site-footer')?.textContent).toContain('Lakshmi Narayana');
   });
 });

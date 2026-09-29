@@ -110,15 +110,15 @@
 
 .portrait__frame {
   position: relative;
-  padding: var(--space-2);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  background: var(--color-surface);
+  // padding: var(--space-2);
+  // border: 1px solid var(--color-border);
+  // border-radius: var(--radius-md);
+  // background: var(--color-surface);
 
-  app-media {
-    filter: grayscale(1);
-    border-radius: var(--radius-sm);
-  }
+  // app-media {
+  //   filter: grayscale(1);
+  //   border-radius: var(--radius-sm);
+  // }
 }
 
 .portrait__ref {

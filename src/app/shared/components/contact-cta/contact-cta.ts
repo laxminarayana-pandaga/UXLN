@@ -13,7 +13,7 @@ import { Icon } from '../icon/icon';
       <div class="container cta__inner">
         <div class="cta__copy">
           <p class="eyebrow eyebrow--dot cta__eyebrow">Get in touch</p>
-          <h2 id="cta-title" class="cta__title">Let's build something meaningful.</h2>
+          <h2 id="cta-title" class="cta__title">Let's work together.</h2>
           <p class="cta__text">
             For UX, UI, product design, frontend collaboration, or professional opportunities, feel
             free to get in touch.

@@ -2,7 +2,7 @@ import { DOCUMENT, Injectable, inject } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { SeoData } from '../models/portfolio.models';
 
-const SITE_NAME = 'Laxminarayana Pandaga';
+const SITE_NAME = 'Lakshmi Narayana Pandaga';
 
 @Injectable({ providedIn: 'root' })
 export class SeoService {
