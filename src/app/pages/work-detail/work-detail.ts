@@ -4,7 +4,7 @@ import { IMAGE_PLACEHOLDER } from '../../core/constants';
 import { ProjectService } from '../../core/services/project.service';
 import { SeoService } from '../../core/services/seo.service';
 import { PROFILE } from '../../data/portfolio.data';
-import { Icon } from '../../shared/components/icon/icon';
+import { Icon, IconName } from '../../shared/components/icon/icon';
 import { Media } from '../../shared/components/media/media';
 import { ContactCta } from '../../shared/components/contact-cta/contact-cta';
 import { PadPipe } from '../../shared/pipes/pad.pipe';
@@ -54,5 +54,42 @@ export class WorkDetail {
             },
       );
     });
+  }
+
+  /** Map approach step to icon */
+  protected getIconForApproach(step: string): IconName {
+    const iconMap: Record<string, IconName> = {
+      'Research': 'search',
+      'Information Architecture': 'sitemap',
+      'Wireframes': 'layout',
+      'Prototype': 'layers',
+      'UI Design': 'ui-layout',
+      'Development Collaboration': 'braces',
+      'Usability Testing': 'mouse-pointer',
+    };
+    return iconMap[step] || 'compass';
+  }
+
+  /** Map decision title to icon */
+  protected getIconForDecision(title: string): IconName {
+    const iconMap: Record<string, IconName> = {
+      'Research before interface': 'search',
+      'Product thinking across tools': 'layers',
+      'Designing with the build in mind': 'braces',
+      'Frameworks over one-off answers': 'workflow',
+      'Designing for multiple canvases': 'sitemap',
+      'Research-led exploration': 'search',
+      'Start from business requirements': 'flag',
+      'Make users visible early': 'users-2',
+      'Visual storytelling': 'palette',
+      'Structure before style': 'layout',
+      'Style guides for consistency': 'grid',
+      'Validate with users': 'mouse-pointer',
+      'Design that ships': 'code',
+      'Working directly with clients': 'pin',
+      'Customisable themes': 'layers',
+      'From layout to live page': 'code',
+    };
+    return iconMap[title] || 'compass';
   }
 }

@@ -1,11 +1,13 @@
 <footer class="footer">
   <div class="container footer__bar">
+    <div class="footerContent">
+      <div>
     <p class="footer__legal">
-      <span class="footer__name">© {{ year }} {{ profile.name }}</span>
-      <span class="footer__sep" aria-hidden="true">·</span>
-      <span>All rights reserved</span>
+      <span class="eyebrow footer__name">{{ profile.roles.join(' • ') }}</span>
+      <span class="footer__sep" aria-hidden="true"></span>
     </p>
-
+    <h3 class="title-xlfooter">I turn complex problems into simple experiences.</h3>
+    </div>
     <nav class="footer__links" aria-label="Footer">
       <ul role="list">
         @for (link of links; track link.path) {
@@ -18,9 +20,12 @@
         </li>
       </ul>
     </nav>
-
-    <button type="button" class="footer__top" (click)="backToTop()">
+</div>
+<span class="eyebrow footer__name">© {{ year }} {{ profile.name }}</span>
+    <!-- <button type="button" class="footer__top" (click)="backToTop()">
       Top <app-icon name="arrow-up" [size]="14" />
-    </button>
+    </button>  -->
+  
   </div>
+
 </footer>

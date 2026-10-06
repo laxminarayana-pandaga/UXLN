@@ -108,7 +108,7 @@
   gap: var(--space-2);
   min-height: 36px;
   padding: 0 var(--space-3);
-  // border-radius: var(--radius-sm);
+  border-radius: var(--radius-sm);
   font-size: var(--text-sm);
   font-weight: 500;
   color: var(--color-text-secondary);
@@ -116,10 +116,10 @@
     color var(--duration) var(--ease),
     background-color var(--duration) var(--ease);
 
-  &:hover,
-  &.is-active {
-    color: var(--color-text);
-  }
+  // &:hover,
+  // &.is-active {
+  //   color: var(--color-text);
+  // }
 
   // Active indicator: underline beneath the label.
   &.is-active:not(.nav__link--cta)::after {
@@ -142,9 +142,30 @@
   color: var(--color-on-accent);
 
   &:hover,
-  &.is-active {
-    color: var(--color-on-accent);
-    background: var(--color-brand);
+  &:focus-visible {
+    background: var(--color-text);
+  }
+}
+
+.nav__link--resume {
+  // margin-left: var(--space-3);
+  // padding: 0 var(--space-4);
+  // font-weight: 600;
+  // background: var(--c-coral);
+  // color: var(--color-on-accent);
+  // border-radius: var(--radius-sm);
+
+  // &:hover,
+  // &:focus-visible {
+  //   background: #d43a16;
+  // }
+
+  app-icon {
+    transition: transform var(--duration) var(--ease);
+  }
+
+  &:hover app-icon {
+    transform: translateY(2px);
   }
 }
 
@@ -223,6 +244,6 @@
     flex-shrink: 0;
 }
 .brand-logo-img {
-    height: 55px;
+    height:43px;
     width: auto;
 }

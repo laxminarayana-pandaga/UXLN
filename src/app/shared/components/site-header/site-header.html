@@ -18,6 +18,19 @@
   <nav id="primary-nav" class="nav" aria-label="Primary">
     <ul role="list" class="nav__list">
       @for (link of links; track link.path) {
+        @if (link.path === '/contact') {
+          <li>
+            <a
+              class="nav__link nav__link--resume"
+              href="/LAKSHMI NARAYANA P - UX Designer - Resume.pdf"
+              download
+              aria-label="Download resume"
+            >
+              Resume
+              <app-icon name="download" [size]="16" />
+            </a>
+          </li>
+        }
         <li>
           <a
             class="nav__link"
@@ -25,7 +38,6 @@
             [routerLink]="link.path"
             routerLinkActive="is-active"
             ariaCurrentWhenActive="page"
-            [routerLinkActiveOptions]="{ exact: link.path === '/' }"
           >
             {{ link.label }}
             @if (link.path === '/contact') {

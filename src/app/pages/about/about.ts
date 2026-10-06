@@ -45,6 +45,19 @@ export class About {
     product: 'flag',
   };
 
+  /** Map process step titles to icon names */
+  protected getIconForProcess(title: string): IconName {
+    const iconMap: Record<string, IconName> = {
+      'Discover': 'search',
+      'Define': 'workflow',
+      'Ideate': 'layers',
+      'Design': 'layout',
+      'Validate': 'mouse-pointer',
+      'Deliver': 'braces',
+    };
+    return iconMap[title] || 'compass';
+  }
+
   protected readonly sections = [
     { id: 'approach', label: 'Approach' },
     { id: 'capabilities', label: 'Capabilities' },

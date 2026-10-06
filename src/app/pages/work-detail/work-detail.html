@@ -2,46 +2,97 @@
   <article aria-labelledby="case-title" [attr.data-tone]="((number() - 1) % 4) + 1">
     <!-- Hero -->
     <header class="hero">
-      <div class="container">
+      <div class="container intro__grid">
+      <div class="intro__copy">
         <a class="back text-link" routerLink="/works">
           <app-icon name="arrow-left" [size]="14" /> All works
         </a>
-
         <p class="eyebrow hero__eyebrow">
           <span>Project / {{ number() | pad }}</span>
           <span aria-hidden="true">·</span>
           <span>{{ p.category }}</span>
         </p>
         <h1 id="case-title" class="display hero__title">{{ p.title }}</h1>
-        <p class="lead hero__summary">{{ p.summary }}</p>
-
-        <dl class="meta">
-          <div>
-            <dt>Role</dt>
-            <dd>{{ p.role }}</dd>
-          </div>
-          <div>
-            <dt>Timeline</dt>
-            <dd>{{ p.timeline }}</dd>
-          </div>
-          <div>
-            <dt>Industry</dt>
-            <dd>{{ p.industry }}</dd>
-          </div>
-          <div>
-            <dt>Organisation</dt>
-            <dd>{{ p.company }}</dd>
-          </div>
-        </dl>
+        <p class="lead hero__summary intro__text--first">{{ p.subsummary }}</p>
       </div>
-
-      <div class="container">
-        <app-media [asset]="p.cover" ratio="16 / 8" [priority]="true" />
+      <div class="portrait__frame">
+        <div class="portrait__photo">
+          <app-media class="portrait" [asset]="p.cover" ratio="16 / 12" [priority]="true" />
+        </div>
       </div>
-    </header>
+      </div>
+</header>
+
+
+      <section class="band" aria-label="Experience snapshot">
+        <div class="container about">
+          <!-- <p class="eyebrow">
+            <span aria-hidden="true" class="portrait__dot1"></span>
+            How I Work
+          </p> -->
+          <div class="">
+            <!-- <h2 id="about-title" class="about__title">
+              My Design <span>Process</span>
+            </h2> -->
+            
+          </div>
+        </div>
+      </section>
+
+<!-- Approach -->
+    <section class="block band" aria-labelledby="approach-title">
+      <div class="container block__grid">
+        <h2 id="approach-title" class="block__label eyebrow">01 · The approach</h2>
+        <ol role="list" class="process-steps">
+          @for (step of p.approach; track step; let i = $index; let last = $last) {
+            <li class="process-step">
+              <span class="process-step__number">{{ i + 1 | pad }}</span>
+              <div class="process-step__icon">
+                <app-icon [name]="getIconForApproach(step)" [size]="20" />
+              </div>
+              <span class="process-step__label">{{ step }}</span>
+              @if (!last) {
+                <span class="process-step__line"></span>
+              }
+            </li>
+          }
+        </ol>
+      </div>
+    </section>
+
+    <section class="block" aria-label="Experience snapshot">
+      <div class="container block__grid">
+        <h2 id="challenge-title" class="block__label eyebrow">02 / OVERVIEW</h2>
+        <div class="block__body about__body">
+            <div class="process-flow">
+              <dl class="meta">
+                <div>
+                  <dt>Project Context</dt>
+                  <dd class="lead hero__summary intro__text--first">{{ p.summary }}</dd>
+                </div>
+                <div>
+                  <dt>My Role</dt>
+                  <dd>{{ p.role }}</dd>
+                </div>
+              </dl>
+              <dl class="meta meta-challenge">
+                <div>
+                  <dt>The challenge</dt>
+                  <dd class="lead hero__summary intro__text--first">
+                     @for (paragraph of p.challenge; track $index) {
+                        {{ paragraph }}
+                      }
+                  </dd>
+                </div>
+
+              </dl>
+            </div>
+        </div>
+      </div>
+    </section>
 
     <!-- Challenge -->
-    <section class="block" aria-labelledby="challenge-title">
+    <!-- <section class="block" aria-labelledby="challenge-title">
       <div class="container block__grid">
         <h2 id="challenge-title" class="block__label eyebrow">01 · The challenge</h2>
         <div class="block__body">
@@ -50,45 +101,29 @@
           }
         </div>
       </div>
-    </section>
+    </section> -->
 
-    <!-- Approach -->
-    <section class="block" aria-labelledby="approach-title">
-      <div class="container block__grid">
-        <h2 id="approach-title" class="block__label eyebrow">02 · The approach</h2>
-        <ol role="list" class="steps">
-          @for (step of p.approach; track step; let i = $index; let last = $last) {
-            <li class="steps__item" [attr.data-tone]="(i % 4) + 1">
-              <span class="index-label">{{ i + 1 | pad }}</span>
-              <span class="steps__name">{{ step }}</span>
-              @if (!last) {
-                <app-icon class="steps__arrow" name="arrow-right" [size]="16" />
-              }
-            </li>
-          }
-        </ol>
-      </div>
-    </section>
+    
 
     <!-- Solution -->
-    <section class="block" aria-labelledby="solution-title">
+    <section class="block band" aria-labelledby="solution-title">
       <div class="container">
-        <div class="block__grid block__grid--tight">
+        <div class="block__grid--tight">
           <h2 id="solution-title" class="block__label eyebrow">03 · Solution</h2>
-          <p class="block__text muted">
-            Key screens and artefacts from the project.
-            @if (galleryPending()) {
+          <h3 class="block__text title-xl">
+            Key Artefacts from the project.
+            <!-- @if (galleryPending()) {
               <span class="placeholder-chip">Visuals to be added</span>
-            }
-          </p>
+            } -->
+          </h3>
         </div>
         <div class="gallery">
           @for (item of p.gallery; track item.hint) {
             <figure class="gallery__item">
               <app-media [asset]="item" ratio="4 / 3" />
-              @if (item.caption) {
+              <!-- @if (item.caption) {
                 <figcaption>{{ item.caption }}</figcaption>
-              }
+              } -->
             </figure>
           }
         </div>
@@ -104,9 +139,11 @@
         <ol role="list" class="decisions">
           @for (decision of p.decisions; track decision.title; let i = $index) {
             <li class="decision" [attr.data-tone]="(i % 4) + 1">
-              <span class="index-label">{{ i + 1 | pad }}</span>
-              <h3 class="title-sm">{{ decision.title }}</h3>
-              <p class="muted">{{ decision.description }}</p>
+              <div class="decision__icon">
+                <app-icon [name]="getIconForDecision(decision.title)" [size]="20" />
+              </div>
+              <h3 class="service__title">{{ decision.title }}</h3>
+              <p class="muted service__summary">{{ decision.description }}</p>
             </li>
           }
         </ol>
@@ -114,7 +151,7 @@
     </section>
 
     <!-- Outcome -->
-    <section class="block" aria-labelledby="outcome-title">
+    <!-- <section class="block" aria-labelledby="outcome-title">
       <div class="container block__grid">
         <h2 id="outcome-title" class="block__label eyebrow">05 · Outcome</h2>
         <div class="block__body">
@@ -128,10 +165,10 @@
           }
         </div>
       </div>
-    </section>
+    </section> -->
 
     <!-- My role -->
-    <section class="block" aria-labelledby="role-title">
+    <section class="block band" aria-labelledby="role-title">
       <div class="container block__grid">
         <h2 id="role-title" class="block__label eyebrow">06 · My role</h2>
         <dl class="roles">

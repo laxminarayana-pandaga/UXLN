@@ -2,13 +2,14 @@
 <section class="intro" aria-labelledby="about-title">
   <div class="container intro__grid">
     <div class="intro__copy">
-      <p class="eyebrow"><span class="eyebrow__index">(00)</span> About</p>
-      <h1 id="about-title" class="intro__title">Designer by craft, builder by habit.</h1>
+      <p class="eyebrow"><span class="eyebrow__index"></span> About</p>
+      <h1 id="about-title" class="intro__title">Lakshmi Narayana Pandaga</h1>
+      <p class="eyebrow portfolio">Sr. UX architect / Product Designer</p>
       @for (paragraph of intro; track $index) {
         <p class="intro__text" [class.intro__text--first]="$first">{{ paragraph }}</p>
       }
 
-      <nav class="subnav" aria-label="On this page">
+      <!-- <nav class="subnav" aria-label="On this page">
         <ul role="list">
           @for (section of sections; track section.id) {
             <li>
@@ -16,28 +17,28 @@
             </li>
           }
         </ul>
-      </nav>
+      </nav> -->
     </div>
 
     <figure class="portrait" data-tone="2">
       <div class="portrait__frame">
-        <span class="portrait__ref" aria-hidden="true">Ref / {{ year }} LP</span>
+        <!-- <span class="portrait__ref" aria-hidden="true">Ref / {{ year }} LP</span> -->
         <div class="portrait__photo">
-          <app-media [asset]="profile.portrait" ratio="4 / 5" [priority]="true" />
-          <figcaption class="portrait__caption">
+          <app-media [asset]="profile.portraitHint" ratio="6 / 5" [priority]="true" />
+          <!-- <figcaption class="portrait__caption">
             <strong>{{ profile.name }}</strong>
             <span>{{ profile.currentRole }}</span>
-          </figcaption>
+          </figcaption> -->
         </div>
-        <p class="portrait__foot">
+        <!-- <p class="portrait__foot">
           <span>{{ profile.roles.join(' / ') }}</span>
           <app-icon name="check" [size]="14" />
-        </p>
+        </p> -->
       </div>
     </figure>
   </div>
 
-  <div class="container">
+  <!-- <div class="container">
     <dl class="facts">
       @for (item of snapshot; track item.label; let i = $index) {
         <div class="fact" [attr.data-tone]="i + 1">
@@ -47,7 +48,19 @@
         </div>
       }
     </dl>
-  </div>
+  </div> -->
+</section>
+
+
+<!-- Tools -->
+<section id="tools" class="section band" aria-labelledby="tools-title">
+  <div class="container onDesign">
+    <app-section-heading
+      eyebrow="On design"
+      title="''Great UX turns complexity into clarity — without making users think about the work behind it.''"
+      headingId="tools-title"
+      index=""
+    ></app-section-heading>  </div>
 </section>
 
 <!-- Approach -->
@@ -55,44 +68,43 @@
   <div class="container">
     <app-section-heading
       eyebrow="Professional approach"
-      title="Design doesn't stop at the interface."
+      title="Designing clarity beyond the interface."
       headingId="approach-title"
-      index="01"
+      index=""
     />
-
     <div class="approach">
       <div class="approach__text">
         <p class="approach__lead">
-          My experience sits across the whole delivery chain, so I can move between business
-          conversations, UX decisions, interface detail and engineering realities — and keep them
-          connected.
+          My experience spans the full product design journey, allowing me to connect business goals, user needs, product strategy, design, and technology — from the first idea through delivery.
         </p>
-
-        <ol role="list" class="chain" aria-label="Where I work">
-          @for (step of chain; track step; let last = $last; let i = $index) {
-            <li [attr.data-tone]="(i % 4) + 1">
-              <span class="chain__step" [class.chain__step--end]="last">{{ step }}</span>
-              @if (!last) {
-                <app-icon name="arrow-right" [size]="12" />
-              }
-            </li>
-          }
-        </ol>
 
         <ul role="list" class="checklist">
           @for (point of approachPoints; track point) {
             <li>
-              <span class="checklist__mark"><app-icon name="check" [size]="11" /></span>
+              <span class="checklist__mark"><app-icon name="arrow-down-right" [size]="12" /></span>
               {{ point }}
             </li>
           }
         </ul>
+        <ol role="list" class="chain" aria-label="Where I work">
+          @for (step of chain; track step; let last = $last; let i = $index) {
+            <li [attr.data-tone]="(i % 4) + 1">
+              <span class="chain__step">{{ step }}</span>
+              @if (!last) {
+                <app-icon class="chain__arrow" name="arrow-right" [size]="14" />
+              }
+            </li>
+          }
+        </ol>
       </div>
 
       <ol role="list" class="process" aria-label="Process">
         @for (step of process; track step.title; let i = $index) {
           <li class="process__step" [attr.data-tone]="(i % 4) + 1">
-            <span class="process__index">{{ i + 1 | pad }}</span>
+            <!-- <span class="process__index">{{ i + 1 | pad }}</span> -->
+            <div class="process__icon">
+              <app-icon [name]="getIconForProcess(step.title)" [size]="20" />
+            </div>
             <div>
               <h3 class="process__title">{{ step.title }}</h3>
               <p class="process__text">{{ step.description }}</p>
@@ -104,70 +116,46 @@
   </div>
 </section>
 
-<!-- Capabilities -->
-<section id="capabilities" class="section" aria-labelledby="capabilities-title">
-  <div class="container">
-    <app-section-heading
-      eyebrow="Core capabilities"
-      title="What I bring"
-      headingId="capabilities-title"
-      index="02"
-    />
 
-    <div class="capabilities">
-      @for (group of capabilities; track group.id; let i = $index) {
-        <article class="capability" [attr.aria-labelledby]="'cap-' + group.id" [attr.data-tone]="(i % 4) + 1">
-          <div class="capability__top">
-            <span class="capability__index">{{ i + 1 | pad }}</span>
-            <span class="capability__icon"><app-icon [name]="capabilityIcons[group.id] ?? 'check'" [size]="18" /></span>
-          </div>
-          <h3 class="capability__title" [id]="'cap-' + group.id">{{ group.title }}</h3>
-          <p class="capability__summary">{{ group.summary }}</p>
-          <ul role="list" class="capability__list">
-            @for (item of group.items; track item) {
-              <li>{{ item }}</li>
-            }
-          </ul>
-        </article>
-      }
-    </div>
-  </div>
-</section>
-
-<!-- Tools -->
-<section id="tools" class="section" aria-labelledby="tools-title">
-  <div class="container">
-    <app-section-heading
-      eyebrow="Tools & technologies"
-      title="Toolkit"
-      headingId="tools-title"
-      index="03"
-    />
-    <ul role="list" class="tools">
-      @for (tool of tools; track tool; let i = $index) {
-        <li class="tools__item" [attr.data-tone]="(i % 4) + 1">{{ tool }}</li>
-      }
-    </ul>
-  </div>
-</section>
 
 <!-- Experience -->
-<section id="experience" class="section" aria-labelledby="experience-title">
+<section id="experience" class="section band" aria-labelledby="experience-title">
   <div class="container">
+    <p class="eyebrow portfolio">Career</p>
     <app-section-heading
-      eyebrow="Career"
-      title="Experience"
+      eyebrow=""
+      title="A career of solving complex problems."
       headingId="experience-title"
-      index="04"
+      index=""
     >
-      <p slot="aside" class="aside-text muted">
-        Where titles overlap within one organisation, they were held concurrently or as part of a
-        progression — not as separate jobs.
+      <p slot="aside" class="aside-text muted" style="width:820px;">
+        Where titles overlap within one organisation, they were held concurrently or as part of a progression — not as separate jobs.
       </p>
     </app-section-heading>
 
     <app-experience-timeline [employers]="experience" />
   </div>
 </section>
+
+<section class="section" aria-label="Experience snapshot">
+  <div class="container about">
+    <div>
+    <p class="eyebrow">
+      <span aria-hidden="true" class="portrait__dot1"></span>
+      AI & Design
+    </p>
+    <h2 id="about-title" class="title-xl about__title">
+        AI
+      </h2>
+      </div>
+    <div class="about__body">
+      <p class="about__text">I've been exploring the broader AI landscape seriously — not as a curiosity, but as a working tool inside my design practice.</p>
+      <p class="about__text">AI has changed what's possible in the first hours of a design sprint. Rapid concept generation, prototype exploration, research synthesis, edge-case stress testing — work that used to take days can happen in hours. That compression is genuinely significant. It means more time for the parts of design that require actual judgment: defining what the problem is, deciding what to prioritize, and making calls that AI can't make for you.</p>
+      <p class="about__text">I use AI-augmented workflows in Figma, Claude and GPT for ideation and content synthesis, and generative tools for rapid visual exploration. I also work closely with engineering teams building AI-enabled product features, which means I understand both how these systems work and where they fail.</p>
+      <p class="about__text">AI is a capability multiplier for a designer who already knows what good looks like. It's not a substitute for that knowledge.</p>
+    </div>
+  </div>
+</section>
+
 
 <app-contact-cta variant="card" />

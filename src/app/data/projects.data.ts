@@ -12,19 +12,22 @@ import { Project } from '../core/models/portfolio.models';
 export const PROJECTS: readonly Project[] = [
   {
     slug: 'enterprise-healthcare-experience',
-    title: 'Enterprise Healthcare Experience',
-    summary: 'Leading UX deliverables for internal products serving Medicare and Medicaid clients.',
-    category: 'Enterprise Product · Healthcare',
-    role: 'Lead UX Product Designer',
-    company: 'Carelon Global Solutions India',
+    title: 'Audit Genie',
+    subtitle: 'Designed the end-to-end design of the Health Reports experience from concept to delivery, simplifying complex health information into an intuitive and actionable member experience.',
+    summary: 'Open Enrollment is a complex healthcare decision-making experience. Members need to understand plan differences, costs, coverage, and benefits while navigating a large amount of information. The challenge was to make the Shop experience easier to understand and easier to navigate while helping members Extracting their available Reports.',
+    subsummary: 'Built a scalable product foundation from the ground up, creating the design system, evolving the customer-facing brand, and simplifying bulk Health Report downloads for both businesses and individuals.',
+    category: 'UX architect / Product Designer',
+    subcategory: 'Healthcare / Member Experience / Internal Portal',
+    role: 'I worked across the end-to-end experience, from understanding the existing journey and information architecture to redesigning the Member experience and Extract Reports. My work focused on simplifying complex healthcare information and creating clearer ways for members to compare and understand plans.',
+    company: 'Elevance Health',
     timeline: 'Apr 2020 – Feb 2026',
     industry: 'Healthcare',
     contributions: ['UX Research', 'Product Design', 'UX/UI', 'AngularJS'],
     featured: true,
     cover: {
-      src: '/assets/images/image-placeholder.png',
+      src: '/assets/images/auditgenie.png',
       alt: 'Enterprise healthcare product interface',
-      hint: '/assets/images/projects/healthcare-cover.jpg',
+      hint: '/assets/images/auditgenie.png',
     },
     challenge: [
       'Internal products supporting Medicare and Medicaid clients carry complex, rule-heavy workflows. The people using them need clarity and consistency to do their work well.',
@@ -33,15 +36,15 @@ export const PROJECTS: readonly Project[] = [
     approach: ['Research', 'Information Architecture', 'Wireframes', 'UI Design', 'Development Collaboration'],
     gallery: [
       {
-        src: '/assets/images/image-placeholder.png',
+        src: '/assets/images/artefacts.png',
         alt: 'Workflow and information architecture overview',
-        hint: '/assets/images/projects/healthcare-01.jpg',
+        hint: '/assets/images/artefacts.png',
         caption: 'Information architecture & workflow mapping',
       },
       {
-        src: '/assets/images/image-placeholder.png',
+        src: '/assets/images/auditgenie.png',
         alt: 'High-fidelity product screens',
-        hint: '/assets/images/projects/healthcare-02.jpg',
+        hint: '/assets/images/auditgenie.png',
         caption: 'High-fidelity product UI',
       },
     ],
@@ -75,12 +78,14 @@ export const PROJECTS: readonly Project[] = [
   },
   {
     slug: 'search-answer-experiences',
-    title: 'Search Answer Experiences for Bing',
-    summary:
-      'Researching and designing answer frameworks and new experiences for Bing across multiple canvases.',
-    category: 'Search · Interaction Design',
-    role: 'Sr. UX/UI Designer',
-    company: 'CompuGain',
+    title: 'Carelon - Dx Utility',
+    subtitle: 'Designed the end-to-end design of the Health Reports experience from concept to delivery, simplifying complex health information into an intuitive and actionable member experience.',
+    summary: 'Open Enrollment is a complex healthcare decision-making experience. Members need to understand plan differences, costs, coverage, and benefits while navigating a large amount of information. The challenge was to make the Shop experience easier to understand and easier to navigate while helping members Extracting their available Reports.',
+    subsummary: 'Researching and designing scalable frameworks for search answers across multiple canvases and segments.',
+    category: 'Product Designer / UX Manager',
+    subcategory: 'Healthcare / Member Experience / Internal Portal',
+    role: 'I worked across the end-to-end experience, from understanding the existing journey and information architecture to redesigning the Member experience and Extract Reports. My work focused on simplifying complex healthcare information and creating clearer ways for members to compare and understand plans.',
+    company: 'Carelon Global Solutions',
     timeline: 'Jul 2017 – Apr 2020',
     industry: 'Search',
     contributions: ['UX Research', 'Interaction Design', 'Framework Design'],
@@ -94,7 +99,7 @@ export const PROJECTS: readonly Project[] = [
       'Search answers appear across many canvases and serve many segments. Designing each one in isolation does not scale.',
       'The work was to research and design frameworks for answers, and to explore innovative experiences across multiple segments.',
     ],
-    approach: ['Research', 'Information Architecture', 'Prototype', 'UI Design', 'Development Collaboration'],
+    approach: ['Research', 'Information Architecture', 'Wireframes', 'UI Design', 'Development Collaboration'],
     gallery: [
       {
         src: '/assets/images/image-placeholder.png',
@@ -138,11 +143,13 @@ export const PROJECTS: readonly Project[] = [
   },
   {
     slug: 'business-and-rfp-design',
-    title: 'Business, Pre-sales & RFP Design',
-    summary:
-      'Turning requirements from sales and business teams into personas, journeys, prototypes and proposal design.',
-    category: 'UX Strategy · Visual Design',
-    role: 'Sr. UX / UI Designer',
+    title: 'Benton',
+    subtitle: 'Spearheaded the design of a new BLE battery monitoring experience, transforming complex vehicle and battery diagnostics into a simple, intuitive mobile experience.',
+    summary:'Connected devices were becoming increasingly important for vehicle and battery management. The opportunity was to design a BLE-enabled mobile experience that could give users a simple, clear, and reliable way to monitor battery health, view real-time diagnostics, manage connected devices, and understand performance data.',
+    subsummary: 'Translating business requirements into persuasive UX artefacts, personas, and RFP designs for client proposals.',
+    category: 'UX / Product Designer',
+    subcategory: 'Automotive / Battery Monitoring / Mobile',
+    role: 'I led the end-to-end UX and product-design effort, translating complex BLE connectivity and battery diagnostics into a clear, intuitive mobile experience through experience architecture, user flows, interaction design, and visual design.',
     company: 'Vertex Computer Systems',
     timeline: 'Nov 2016 – Jul 2017',
     industry: 'IT Services',
@@ -202,11 +209,13 @@ export const PROJECTS: readonly Project[] = [
   },
   {
     slug: 'websites-portals-web-applications',
-    title: 'Websites, Portals & Web Applications',
-    summary:
-      'End-to-end design for websites, portals and web apps — from requirement analysis to usability testing.',
-    category: 'Web · UX / UI · Frontend',
-    role: 'Sr. UX / UI Designer',
+    title: 'GateGourmet',
+    subtitle: 'Designed enterprise digital experiences for gategroup, simplifying complex operational workflows and creating more intuitive experiences across travel, retail, and hospitality services.',
+    summary: 'gategroup operates across a complex ecosystem of travel, catering, retail, and hospitality services. Teams need to manage interconnected operational processes, information, and workflows while supporting a seamless experience across different touchpoints. The challenge was to simplify these complex workflows, organize information more clearly, and create intuitive digital experiences that help users complete tasks efficiently and confidently.',
+    subsummary: 'Designing enterprise websites, portals, and web applications with consistent visual language and scalable patterns.',
+    category: 'Product Designer / Lead UX',
+    subcategory: 'Food & Travel / Digital Products / Enterprise',
+    role: 'I worked hands-on across UX strategy, interaction design, visual design, prototyping, and experience definition. I helped translate complex operational requirements into cohesive digital experiences, working across workflows, enterprise applications, and customer-facing experiences while balancing usability, efficiency, and the needs of a global aviation business.',
     company: 'Smash Solutions',
     timeline: 'Aug 2012 – Oct 2016',
     industry: 'Web & Digital',
@@ -280,9 +289,11 @@ export const PROJECTS: readonly Project[] = [
   {
     slug: 'client-websites-wordpress',
     title: 'Client Websites on WordPress',
-    summary:
-      'Designing and building websites for US clients — layouts, HTML conversion and WordPress theme customisation.',
+    subtitle: 'Designing and building websites with WordPress theme customisation',
+    summary:'Designing and building websites for US clients — layouts, HTML conversion and WordPress theme customisation.',
+    subsummary: 'Building custom WordPress themes and client websites with direct US client collaboration.',
     category: 'Web Design · WordPress',
+    subcategory: 'WordPress Development',
     role: 'Sr. UI Designer',
     company: 'Pegasys Information Technologies Pvt Ltd',
     timeline: 'Jun 2010 – Aug 2012',
@@ -297,7 +308,7 @@ export const PROJECTS: readonly Project[] = [
     challenge: [
       'Multiple client websites needed to be designed, built and kept up to date — often with requirements and design updates arriving directly from clients in the US.',
     ],
-    approach: ['Wireframes', 'UI Design', 'Development Collaboration'],
+    approach: ['Research', 'Information Architecture', 'Wireframes', 'UI Design', 'Development Collaboration'],
     gallery: [
       {
         src: '/assets/images/image-placeholder.png',

@@ -3,25 +3,29 @@
   --color-bg: #faf8f5;
   --color-surface: #ffffff;
   --color-surface-muted: #efefec;
-  --color-band: #efefed;
-  --color-inverse: #111111;
+  --color-band: #fff;
+  --color-inverse: #000;
   --color-on-inverse-muted: rgb(255 255 255 / 0.68);
   --color-status: #2f9e5b;
   --color-text: #171717;
   --color-text-secondary: #6b6b6b;
   --color-text-tertiary: #8a8a86;
   --color-border: #e6e6e3;
+  --color-border-b: #000;
   --color-border-strong: #d4d4cf;
   --color-accent: #111111;
   --color-on-accent: #ffffff;
   --color-focus: #171717;
   --color-error: #b3261e;
   --color-success: #1f6b3a;
+  --color-black: #000;
+  
 
   // Type
-  --font-display: 'Newsreader', 'Iowan Old Style', Georgia, 'Times New Roman', serif;
+  --font-display: 'DM Serif Display', 'Iowan Old Style', Georgia, 'Times New Roman', serif;
   --font-body: 'DM Sans', 'Iowan Old Style', Georgia, 'Times New Roman', serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-mono-small:'Space Mono', 'Iowan Old Style', Georgia, 'Times New Roman', serif;
 
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;
@@ -29,7 +33,7 @@
   --text-md: 1.125rem;
   --text-lg: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem);
   --text-xl: clamp(1.5rem, 1.2rem + 1.2vw, 2.25rem);
-  --text-2xl: clamp(2rem, 1.4rem + 2.4vw, 3.5rem);
+  --text-2xl: clamp(2rem, 1.4rem + 2.4vw,  4rem);
   --text-3xl: clamp(2.5rem, 1.5rem + 4.2vw, 5.5rem);
   --text-display: clamp(2.75rem, 1.2rem + 6.4vw, 8rem);
 
@@ -43,6 +47,7 @@
   --space-7: 3rem;
   --space-8: 4rem;
   --space-9: 6rem;
+  --space-10: 8rem;
   --section-space: clamp(3.5rem, 2.5rem + 3.5vw, 6rem);
 
   // Layout

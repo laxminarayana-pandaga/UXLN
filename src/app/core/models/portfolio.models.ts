@@ -37,6 +37,7 @@ export interface Profile {
   readonly currentRole: string;
   readonly careerStart: YearMonth;
   readonly portrait: MediaAsset;
+  readonly portraitHint: MediaAsset;
   readonly contact: ContactDetails;
   readonly linkedIn: SocialLink;
 }
@@ -98,8 +99,11 @@ export interface KeyDecision {
 export interface Project {
   readonly slug: string;
   readonly title: string;
+  readonly subtitle: string;
   readonly summary: string;
+  readonly subsummary?: string;
   readonly category: string;
+  readonly subcategory?: string;
   readonly role: string;
   readonly company: string;
   readonly timeline: string;

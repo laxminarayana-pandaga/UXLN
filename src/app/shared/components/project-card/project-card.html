@@ -1,34 +1,61 @@
 <article class="card" [attr.aria-labelledby]="'project-' + project().slug">
-  <div class="card__media">
-    <app-media [asset]="project().cover" [ratio]="wide() ? '16 / 9' : '16 / 10'" />
+  <div class="card__content">
+    <div class="card__visual">
+      <div class="card__meta">
+        
+        <h3 class="card__title" [id]="'project-' + project().slug">
+        <span class="eyebrow">{{ index() | pad }}</span> {{ project().title }}
+      </h3>
+        <span class="eyebrow">{{ project().category }}</span>
+      </div>
+
+      <!-- <div class="card__infographic">
+        <div class="infographic-element element-1">
+          <div class="infographic-circle"></div>
+          <div class="infographic-line"></div>
+        </div>
+        <div class="infographic-element element-2">
+          <div class="infographic-bar"></div>
+          <div class="infographic-bar short"></div>
+        </div>
+        <div class="infographic-element element-3">
+          <div class="infographic-dot"></div>
+          <div class="infographic-dot small"></div>
+        </div>
+      </div> -->
+    </div>
+
+    <div class="card__text">
+      <div class="card__details">
+        @if (project().subcategory) {
+          <p class="eyebrow subcategory">{{ project().subcategory }}</p>
+        }
+        <p class="card__detail-text">{{ project().subtitle }}</p>
+        <!-- @if (project().subsummary) {
+          <p class="card__detail-text card__subsummary">{{ project().subsummary }}</p>
+        } -->
+        <div class="card__detail-section">
+          <h4 class="card__section-title">PROJECT CONTEXT</h4>
+          <p class="card__detail-text">{{ project().summary }}</p>
+        </div>
+
+        <div class="card__detail-section">
+          <h4 class="card__section-title">MY ROLE</h4>
+          <p class="card__detail-text">{{ project().role }}</p>
+        </div>
+      </div>
+
+      <div class="card__actions">
+        <a class="card__cta" [routerLink]="link()">
+          View full case study
+          <app-icon name="arrow-down-right" [size]="14" />
+        </a>
+        <span class="card__tag cardtag--dot">Interactive designs</span>
+      </div>
+    </div>
   </div>
 
-  <div class="card__body">
-    <p class="card__meta">
-      <span class="index-label">PROJECT / {{ index() | pad }}</span>
-      <span class="card__category">{{ project().category }}</span>
-    </p>
-
-    <h3 class="card__title" [id]="'project-' + project().slug">
-      <a class="card__link" [routerLink]="link()">{{ project().title }}</a>
-    </h3>
-
-    <p class="card__summary">{{ project().summary }}</p>
-
-    <dl class="card__facts">
-      <div>
-        <dt>Role</dt>
-        <dd class="card__role">{{ project().role }}</dd>
-      </div>
-      <div>
-        <dt>Contribution</dt>
-        <dd>{{ project().contributions.join(' · ') }}</dd>
-      </div>
-    </dl>
-
-    <span class="card__cta" aria-hidden="true">
-      View case study
-      <app-icon name="arrow-right" [size]="14" />
-    </span>
+  <div class="card__media">
+    <app-media [asset]="project().cover" [ratio]="wide() ? '16 / 12' : '16 / 12'" />
   </div>
 </article>

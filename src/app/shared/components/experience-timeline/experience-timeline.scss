@@ -15,28 +15,33 @@
   display: grid;
   transition: border-color var(--duration) var(--ease);
 
-  &:hover {
-    border-color: var(--c-violet-soft);
-  }
   gap: var(--space-3);
   padding: var(--space-5);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  // border-radius: var(--radius-md);
+  // background: var(--color-surface);
 
   @include mq(desktop) {
-    grid-template-columns: 11rem minmax(0, 1fr) minmax(8rem, auto);
+    grid-template-columns: 23rem minmax(0, 1fr);
     gap: var(--space-6);
     padding: var(--space-6);
   }
 }
+// .entry__when {
+//   display: grid;
+//   gap: var(--space-5);
+// }
 
 .entry__years {
-  font-family: var(--font-display);
-  font-size: var(--text-md);
-  font-weight: 700;
+  font-family: var(--font-mono-small);
+  font-size: 12px;
   white-space: nowrap;
   font-variant-numeric: tabular-nums;
+  border: 1px solid var(--color-border);
+  padding: var(--space-1) var(--space-3);
+  border-radius: 100px;
+  border-radius: 100px;
+  gap: var(--space-1);
 }
 
 .is-current .entry__years::before {
@@ -44,7 +49,7 @@
   display: inline-block;
   width: 6px;
   height: 6px;
-  margin: 0 var(--space-2) 0.2em 0;
+  margin:0.2em var(--space-2) 0.2em 0;
   border-radius: 50%;
   background: var(--c-teal);
   box-shadow: 0 0 0 3px var(--c-teal-tint);
@@ -64,19 +69,21 @@
 }
 
 .entry__company {
-  font-size: var(--text-md);
-  font-weight: 700;
+  font-size:1.875rem;
+  font-weight:500;
 }
 
 .entry__meta {
-  font-size: var(--text-xs);
+  font-size: 12px;
   color: var(--color-text-tertiary);
+  margin: var(--space-3) 0;
+  display: block;
 }
 
 .entry__summary {
-  max-width: 64ch;
+  max-width:80ch;
   font-size: var(--text-sm);
-  color: var(--color-text-secondary);
+  color: color-mix(in oklab,var(--color-black) 65%,transparent);
 }
 
 // Concurrent / progressive titles within the organisation.
@@ -127,19 +134,20 @@
 }
 
 .entry__place {
-  display: inline-flex;
+  display:block;
   align-items: center;
   gap: var(--space-1);
   font-size: var(--text-xs);
   color: var(--color-text-secondary);
+  margin: var(--space-3) 0;
 
   app-icon {
     color: var(--c-coral);
   }
 
-  @include mq(desktop) {
-    justify-self: end;
-    align-self: start;
-    text-align: right;
-  }
+  // @include mq(desktop) {
+  //   justify-self: end;
+  //   align-self: start;
+  //   text-align: right;
+  // }
 }

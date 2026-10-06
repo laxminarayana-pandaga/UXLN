@@ -3,12 +3,12 @@
 :host {
   display: grid;
   gap: var(--space-5);
-  margin-bottom: clamp(2.5rem, 1.5rem + 3vw, 4.5rem);
+  margin-bottom: clamp(2.5rem, 1.5rem + 3vw, 2rem);
 
   @include mq(desktop) {
-    grid-template-columns: 1fr auto;
-    align-items: end;
-    gap: var(--space-7);
+    // grid-template-columns: 1fr auto;
+    // align-items: end;
+    // gap: var(--space-7);
   }
 }
 

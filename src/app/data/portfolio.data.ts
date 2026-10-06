@@ -15,18 +15,22 @@ export const YEARS_OF_EXPERIENCE = `${yearsSince(CAREER_START)}+`;
 export const PROFILE: Profile = {
   name: 'Lakshmi Narayana Pandaga',
   shortName: 'L. Pandaga',
-  roles: ['Lakshmi Narayana', 'Product Designer'],
-  headline: 'Designing meaningful digital experiences',
+  roles: ['Sr. UX architect / Product Designer'],
+  headline: 'I turn complex problems into simple experiences.',
   headlineSuffix: ``,
   // headlineSuffix: `with ${YEARS_OF_EXPERIENCE} years of experience.`,
-  summary:
-    'From user experience and interface design to frontend implementation, I bridge design thinking and technology to create usable, scalable digital products.',
-  currentRole: 'User Experience Architect at 7TechNIX LLC',
+  summary: 'Im a Sr. UX architect / Product Designer with 18+ years of experience across user research, interface design and frontend development — from web design studios to enterprise healthcare and search.',
+  currentRole: 'Sr. UX architect / Product Designer at 7TechNIX LLC',
   careerStart: CAREER_START,
   portrait: {
     src: '/assets/images/homepageImg3.png',
     alt: 'Portrait of Lakshmi Narayana Pandaga',
-    hint: '/assets/images/laxmip.jpeg',
+    hint: '/assets/images/about.png',
+  },
+  portraitHint: {
+    src: '/assets/images/about.png',
+    alt: 'Portrait hint of Lakshmi Narayana Pandaga',
+    hint: '/assets/images/about.png',
   },
   contact: {
     // TODO: Replace with the real email address.
@@ -45,54 +49,54 @@ export const SNAPSHOT: readonly SnapshotItem[] = [
   {
     value: YEARS_OF_EXPERIENCE,
     label: 'Years',
-    detail: 'UX · UI · Web Design · Frontend',
+    detail: 'Years Experience',
     tag: 'Timeline',
   },
   {
     value: String(EXPERIENCE.length),
     label: 'Organisations',
-    detail: 'Healthcare · Search · Web · Digital Products',
+    detail: 'Industries',
     tag: 'Scale',
   },
   {
     value: 'End-to-end',
     label: 'Design to Development',
-    detail: 'Research · UX · UI · Prototyping · HTML/CSS · Frontend',
+    detail: 'Discover • Design • Deliver',
     tag: 'Craft',
   },
 ];
 
 export const INTRO: readonly string[] = [
-  `I'm a UX architect and designer with ${YEARS_OF_EXPERIENCE} years of experience across user research, interface design and frontend development — from web design studios to enterprise healthcare and search.`,
-  'I work best where problems are complex and teams are cross-functional. I bring a resourceful, flexible approach, a constant drive to learn, and a habit of turning what I learn into better outcomes for the people I design for and the organisations I work with.',
+  `A user-centered, iterative approach shaped by ${YEARS_OF_EXPERIENCE} years of experience designing enterprise products.`,
 ];
 
 export const APPROACH_POINTS: readonly string[] = [
-  'Working across departments and cross-functional teams',
-  'Collaborating closely with engineers and development teams',
-  'Resolving technical issues and implementing technical enhancements',
-  'Shipping design and functional enhancements',
-  'Monitoring site statistics and search engine optimisation',
-  'Translating business requirements into usable digital experiences',
+  'Understanding business goals and constraints',
+  'Understanding users, context, and complex workflows',
+  'Defining information architecture, navigation, and user flows',
+  'Designing intuitive experiences from wireframes to high-fidelity UI',
+  'Prototyping and validating ideas through iteration',
+  'Collaborating closely with product, engineering, and stakeholders',
+  'Translating requirements into scalable digital experiences',
+  'Supporting implementation and refining the experience through delivery',
 ];
 
-export const DELIVERY_CHAIN: readonly string[] = ['Business', 'UX', 'UI', 'Engineering', 'Delivery'];
+export const DELIVERY_CHAIN: readonly string[] = ['Understand the problem', 'Define the opportunity', 'Design the experience', 'Deliver the solution'];
 
 export const PROCESS: readonly ProcessStep[] = [
-  { title: 'Understand', description: 'Business goals, constraints and requirements.' },
-  { title: 'Research', description: 'Users, context, personas and journeys.' },
-  { title: 'Structure', description: 'Information architecture, navigation and flows.' },
-  { title: 'Design', description: 'Wireframes through to high-fidelity UI.' },
-  { title: 'Prototype', description: 'Interactive concepts to test ideas early.' },
-  { title: 'Build', description: 'Frontend implementation alongside engineering.' },
-  { title: 'Validate', description: 'Usability testing, iteration and recommendations.' },
+  { title: 'Discover', description: 'Business goals, user needs, constraints, and opportunities.' },
+  { title: 'Define', description: 'Problems, requirements, users, journeys, and experience goals.' },
+  { title: 'Ideate', description: 'Information architecture, concepts, navigation, and user flows.' },
+  { title: 'Design', description: 'Wireframes, interaction patterns, prototypes, and visual design.' },
+  { title: 'Validate', description: 'Testing concepts, gathering feedback, and iterating toward clarity.' },
+  { title: 'Deliver', description: 'Design systems, developer collaboration, implementation, and refinement.' },
 ];
 
 export const CAPABILITIES: readonly CapabilityGroup[] = [
   {
     id: 'ux',
-    title: 'UX Design',
-    summary: 'Understanding people and structuring complexity.',
+    title: 'UI/UX Design',
+    summary: 'Creating intuitive interfaces and seamless experiences that make complexity feel simple.',
     items: [
       'User Research',
       'Personas',
@@ -108,8 +112,8 @@ export const CAPABILITIES: readonly CapabilityGroup[] = [
   },
   {
     id: 'ui',
-    title: 'UI Design',
-    summary: 'Clear, consistent and responsive interfaces.',
+    title: 'Product Design',
+    summary: 'Designing meaningful products that balance user needs, business goals, and technology.',
     items: [
       'Visual Design',
       'High-Fidelity Mockups',
@@ -122,8 +126,8 @@ export const CAPABILITIES: readonly CapabilityGroup[] = [
   },
   {
     id: 'frontend',
-    title: 'Frontend',
-    summary: 'Designs that survive contact with the browser.',
+    title: 'Mobile Apps',
+    summary: 'Designing thoughtful mobile experiences that are intuitive, accessible, and engaging.',
     items: [
       'HTML / HTML5',
       'CSS / CSS3',
@@ -137,8 +141,8 @@ export const CAPABILITIES: readonly CapabilityGroup[] = [
   },
   {
     id: 'product',
-    title: 'Product & Delivery',
-    summary: 'Connecting business intent to shipped work.',
+    title: 'Design Systems',
+    summary: 'Building scalable systems that bring consistency, speed, and clarity to product teams.',
     items: [
       'Business Requirement Analysis',
       'Design Strategy',
@@ -167,9 +171,40 @@ export const TOOLS: readonly string[] = [
   'Drupal',
 ];
 
+export const TOOLKIT: readonly {
+  category: string;
+  tools: readonly string[];
+  dark?: boolean;
+}[] = [
+  {
+    category: 'DESIGN & PROTOTYPING',
+    tools: ['Figma', 'FigJam', 'Sketch', 'Adobe Creative Cloud'],
+  },
+  {
+    category: 'RESEARCH & USABILITY TESTING',
+    tools: ['UserTesting', 'UserZoom', 'Optimal Workshop', 'Lookback', 'Hotjar', 'User Interviews'],
+  },
+  {
+    category: 'COLLABORATION & PRODUCT',
+    tools: ['Jira', 'Confluence', 'Miro', 'Slack'],
+  },
+  {
+    category: 'DESIGN SYSTEMS & DEVELOPER HANDOFF',
+    tools: ['Figma Dev Mode', 'Storybook', 'Zeplin'],
+  },
+  {
+    category: 'ANALYTICS & PRODUCT INSIGHTS',
+    tools: ['Google Analytics', 'Hotjar', 'Contentsquare'],
+  },
+  {
+    category: 'AI & EMERGING WORKFLOWS',
+    tools: ['Figma AI / Figma Make', 'ChatGPT', 'Gemini', 'Claude', 'Microsoft Copilot', 'Adobe Firefly', 'Perplexity', 'Cursor', 'Midjourney', 'Uxpilot'],
+    dark: true,
+  },
+];
+
 export const NAV_LINKS = [
-  { label: 'Home', path: '/' },
-  { label: 'About', path: '/about' },
   { label: 'Works', path: '/works' },
-  { label: 'Contact', path: '/contact' },
+  { label: 'About', path: '/about' },
+    { label: 'Contact', path: '/contact' },
 ] as const;

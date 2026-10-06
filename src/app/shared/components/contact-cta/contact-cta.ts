@@ -14,20 +14,11 @@ import { Icon } from '../icon/icon';
         <div class="cta__copy">
           <p class="eyebrow eyebrow--dot cta__eyebrow">Get in touch</p>
           <h2 id="cta-title" class="cta__title">Let's work together.</h2>
-          <p class="cta__text">
-            For UX, UI, product design, frontend collaboration, or professional opportunities, feel
-            free to get in touch.
-          </p>
         </div>
         <div class="cta__actions">
           <a class="btn btn--inverse" routerLink="/contact">
-            Let's connect <app-icon name="arrow-up-right" [size]="16" />
+            Let's connect <app-icon name="arrow-down-right" [size]="16" />
           </a>
-          @if (variant() === 'card') {
-            <a class="btn btn--ghost-inverse" routerLink="/works">
-              View works <app-icon name="arrow-right" [size]="16" />
-            </a>
-          }
         </div>
       </div>
     </section>
