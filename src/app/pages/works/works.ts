@@ -12,7 +12,7 @@ import { PadPipe } from '../../shared/pipes/pad.pipe';
     <section class="section works" aria-labelledby="works-title">
         <header class="works__header">
         <div class="container">
-          <p class="eyebrow">Works <span class="muted">({{ projects.length | pad }})</span></p>
+          <p class="eyebrow">Works </p>
           <h1 id="works-title" class="display">Good products start with a good conversation.</h1>
           <p class="lead">
             Case studies from enterprise healthcare, search, pre-sales design and web — spanning
